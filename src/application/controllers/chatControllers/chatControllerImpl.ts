@@ -1,4 +1,4 @@
-import { ChatReactions, EmitMessage, Room } from '../../../presentation/chat/chatReactions'
+import { ChatReactions, EmitMessage } from '../../../presentation/chat/chatReactions'
 import { ChatController } from './chatController'
 
 export class ChatControllerImpl implements ChatController {
@@ -11,7 +11,7 @@ export class ChatControllerImpl implements ChatController {
 
   async joinRoom(roomId: string): Promise<void> {
     return new Promise<void>((resolve) => {
-      this.chatReactions.joinRoom(new Room(roomId))
+      this.chatReactions.joinRoom()
       resolve()
     })
   }
@@ -25,7 +25,7 @@ export class ChatControllerImpl implements ChatController {
 
   async sendMessage(roomId: string, message: string): Promise<void> {
     return new Promise<void>((resolve) => {
-      this.chatReactions.emitMessageToRoom(new EmitMessage(new Room(roomId), message))
+      this.chatReactions.emitMessageToRoom(new EmitMessage(message))
       resolve()
     })
   }

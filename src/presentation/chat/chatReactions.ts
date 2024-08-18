@@ -1,7 +1,7 @@
 import { Namespace, Socket } from 'socket.io'
 
 export interface ChatReactions {
-  joinRoom(room: Room): void
+  joinRoom(): void
 
   emitMessageToRoom(remitMsg: EmitMessage): void
 
@@ -22,11 +22,9 @@ export class Room {
  * Value Object Emit Message
  */
 export class EmitMessage {
-  room: Room
   message: string
 
-  constructor(room: Room, message: string) {
-    this.room = room
+  constructor(message: string) {
     this.message = message
   }
 }
@@ -34,20 +32,20 @@ export class EmitMessage {
 export class ChatReactionsImpl implements ChatReactions {
   socket: Socket
   io: Namespace
+  room: Room
 
-  constructor(io: Namespace, socket: Socket) {
+  constructor(io: Namespace, socket: Socket, room: Room) {
     this.socket = socket
     this.io = io
+    this.room = room
   }
 
-  joinRoom(room: Room): void {
-    this.socket.join(room.id)
-    console.log('User joined room')
+  joinRoom(): void {
+    this.socket.join(this.room.id)
   }
 
   emitMessageToRoom(emitMsg: EmitMessage): void {
-    console.log('emitting msg to', emitMsg.message, emitMsg.room.id)
-    this.io.to(emitMsg.room.id).emit('message', emitMsg.message)
+    this.io.to(this.room.id).emit('message', emitMsg.message)
   }
 
   leaveRoom(): void {

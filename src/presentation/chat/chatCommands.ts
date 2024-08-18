@@ -1,7 +1,7 @@
 import { Namespace, Socket } from 'socket.io'
 import { ChatController } from '../../application/controllers/chatControllers/chatController'
 import { ChatControllerImpl } from '../../application/controllers/chatControllers/chatControllerImpl'
-import { ChatReactions, ChatReactionsImpl } from './chatReactions'
+import { ChatReactions, ChatReactionsImpl, Room } from './chatReactions'
 // import { io } from "../..";
 
 /**
@@ -45,12 +45,17 @@ export function registerChatCommands(chatNamespace: Namespace) {
     'connection',
     () => true,
     (socket: Socket) => {
-      const chatReactions: ChatReactions = new ChatReactionsImpl(chatNamespace, socket)
-      const chatController: ChatController = new ChatControllerImpl(chatReactions)
-
       //  Register Join Room listener
       chatCommandListener(socket, 'joinRoom', (message: any) => {
         const { room } = message
+
+        const chatReactions: ChatReactions = new ChatReactionsImpl(
+          chatNamespace,
+          socket,
+          new Room(room)
+        )
+        const chatController: ChatController = new ChatControllerImpl(chatReactions)
+
         chatController.joinRoom(room).then(() => {
           // Register Leave Room listener
           chatCommandListener(socket, 'leaveRoom', (message: string) =>
