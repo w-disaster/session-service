@@ -1,11 +1,11 @@
 type Message = {
-    userToken: string,
-};
+  userToken: string
+}
 
 type JoinMsg = Message & {
-    sessionId: string;
+  sessionId: string
 }
 
 type ChatMessage = Message & {
-    text: string
+  text: string
 }

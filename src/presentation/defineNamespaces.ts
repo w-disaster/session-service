@@ -1,16 +1,11 @@
-import { Server } from "socket.io";
-import { registerChatCommands } from "./chatCommands";
+import { Server } from 'socket.io'
+import { registerChatCommands } from './chat/chatCommands'
 //import { registerVideoCommands } from "./videoCommands";
 
+export async function registerCommands(io: Server) {
+  // Register Chat Commands
+  registerChatCommands(io.of('/chat'))
 
-export async function defineNamespaces(io: Server) {
-
-    // Register Chat Commands
-    registerChatCommands(io.of("/chat"));
-
-    // // Register Video Commands
-    // TODO
-    // registerVideoCommands(io.of("/video"));
-
-
+  //  Register Video Commands
+  //registerVideoCommands(io.of("/video"));
 }

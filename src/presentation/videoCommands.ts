@@ -1,27 +1,23 @@
-import { Namespace, Socket } from "socket.io";
+// import { Namespace } from "socket.io";
 
+// export async function registerVideoCommands(videoNamespace: Namespace) {
 
-export async function registerVideoCommands(videoNamespace: Namespace) {
+//     // videoController: VideoController = VideoController(videoNamespace)
 
-    // TODO
-    // videoController: VideoController = VideoController(videoNamespace)
+//     // videoNamespace.on("connection", (socket: Socket) => {
 
-    // videoNamespace.on("connection", (socket: Socket) => {
+//     //     socket.on("Pause", () => {
 
-    //     socket.on("Pause", () => {
-            
-    //     });
+//     //     });
 
-    //     socket.on("Play", () => {
-            
-    //     });
+//     //     socket.on("Play", () => {
 
-        
-    //     socket.on("TimelineChange", () => {
-            
-    //     });
+//     //     });
 
+//     //     socket.on("TimelineChange", () => {
 
-    // });
+//     //     });
 
-}
+//     // });
+
+// }

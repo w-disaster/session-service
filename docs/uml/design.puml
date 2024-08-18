@@ -1,0 +1,35 @@
+@startuml
+
+' /presentation
+
+interface NamespaceManager {
+    + registerNamespaces(socket)
+}
+
+
+' /application
+' /application/commands
+interface ChatCommands {
+    + connectionCommand()
+    + joinChatCommand()
+    + sendMessageCommand()
+}
+
+interface VideoCommands {
+    + connectionCommand()
+    + videoStopCommand()
+    + videoPlayCommand()
+    + timelineChangeCommand()
+}
+' /application/controllers
+interface ChatController {
+
+}
+interface VideoController {
+
+}
+
+' /domain
+
+
+@enduml
