@@ -1,4 +1,5 @@
 import { Namespace, Socket } from 'socket.io'
+import { Room } from '../../application/controllers/userController'
 
 export interface ChatReactions {
   joinRoom(): void
@@ -6,16 +7,6 @@ export interface ChatReactions {
   emitMessageToRoom(remitMsg: EmitMessage): void
 
   leaveRoom(): void
-}
-
-/**
- * Entity Room
- */
-export class Room {
-  id: string
-  constructor(id: string) {
-    this.id = id
-  }
 }
 
 /**
@@ -41,11 +32,11 @@ export class ChatReactionsImpl implements ChatReactions {
   }
 
   joinRoom(): void {
-    this.socket.join(this.room.id)
+    this.socket.join(this.room.roomName)
   }
 
   emitMessageToRoom(emitMsg: EmitMessage): void {
-    this.io.to(this.room.id).emit('message', emitMsg.message)
+    this.io.to(this.room.roomName).emit('message', emitMsg.message)
   }
 
   leaveRoom(): void {
