@@ -1,6 +1,6 @@
 {
-  "name": "chat-service",
-  "description": "Chat Service of LetsStreamIt",
+  "name": "session-service",
+  "description": "Session Service of LetsStreamIt",
   "keywords": [
     "typescript",
     "template"
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/w-disaster/chat-service"
+    "url": "https://github.com/LetsStreamIt/session-service"
   },
   "license": "MIT",
   "main": "dist/index.js",
@@ -52,9 +52,10 @@
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.2.5",
-    "semantic-release-preconfigured-conventional-commits": "1.1.95",
+    "semantic-release-preconfigured-conventional-commits": "1.1.96",
     "source-map-support": "^0.5.21",
     "ts-node": "^10.9.1",
+    "typedoc": "^0.26.6",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.0"
   },

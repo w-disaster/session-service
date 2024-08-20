@@ -1,25 +1,16 @@
-name: CI/CD Process
+run-name: ${{ github.repository }} Release
+
 on:
-  workflow_call:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
 jobs:
   build:
-    strategy:
-      fail-fast: false
-      matrix: 
-        os: [ubuntu, windows, macos]
-    runs-on: ${{ matrix.os }}-latest
-    steps:
-      - name: Checkout
-        uses: DanySK/action-checkout@0.2.19
-      - uses: actions/setup-node@v4.0.3
-        with:
-          cache: npm
-          node-version: lts/*
-      - name: Install dependencies
-        run: npm ci
-      - name: Run tests
-        run: npm test
+    uses: ./.github/workflows/ci.yml
   release:
     permissions:
       contents: write
@@ -34,7 +25,7 @@ jobs:
       node-version: ${{ steps.node-version.outputs.node-version }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4.1.7
+        uses: DanySK/action-checkout@0.2.19
       - uses: actions/setup-node@v4.0.3
         with:
           cache: npm
@@ -46,7 +37,6 @@ jobs:
   success:
     runs-on: ubuntu-latest
     needs:
-      - build
       - release
     if: >-
       always() && (
@@ -56,5 +46,3 @@ jobs:
     steps:
       - name: Verify that there were no failures
         run: ${{ !contains(join(needs.*.result, ','), 'failure') }}
-
-
