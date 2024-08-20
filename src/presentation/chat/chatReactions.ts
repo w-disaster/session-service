@@ -1,45 +1,62 @@
 import { Namespace, Socket } from 'socket.io'
-import { Room } from '../../application/controllers/userController'
+import { Room } from './model/room'
 
-export interface ChatReactions {
-  joinRoom(): void
+export interface RoomReactions {
 
-  emitMessageToRoom(remitMsg: EmitMessage): void
+    socket: Socket
+    io: Namespace
+    room: Room
 
-  leaveRoom(): void
+    /**
+     * Joins the SocketIO socket to the room specified in the constructor.
+     */
+    joinRoom(): void
+
+    /**
+     * Sends a message to the SocketIO room, joined or not.
+     * @param msg 
+     */
+    emitMessageToRoom(msg: EmitMessage): void
+
+    /**
+     * Disconnects the SocketIO socket from the room.
+     */
+    leaveRoom(): void
 }
 
 /**
  * Value Object Emit Message
  */
 export class EmitMessage {
-  message: string
+    message: string
 
-  constructor(message: string) {
-    this.message = message
-  }
+    constructor(message: string) {
+        this.message = message
+    }
 }
 
-export class ChatReactionsImpl implements ChatReactions {
-  socket: Socket
-  io: Namespace
-  room: Room
+export class RoomReactionsImpl implements RoomReactions {
 
-  constructor(io: Namespace, socket: Socket, room: Room) {
-    this.socket = socket
-    this.io = io
-    this.room = room
-  }
+    socket: Socket
+    io: Namespace
+    room: Room
 
-  joinRoom(): void {
-    this.socket.join(this.room.roomName)
-  }
+    constructor(io: Namespace, socket: Socket, room: Room) {
+        this.socket = socket
+        this.io = io
+        this.room = room
+    }
 
-  emitMessageToRoom(emitMsg: EmitMessage): void {
-    this.io.to(this.room.roomName).emit('message', emitMsg.message)
-  }
+    joinRoom(): void {
+        this.socket.join(this.room.id.roomName)
+    }
 
-  leaveRoom(): void {
-    console.log('user disconnected:', this.socket.id)
-  }
+    emitMessageToRoom(emitMsg: EmitMessage): void {
+        this.io.to(this.room.id.roomName).emit('message', emitMsg.message)
+    }
+
+    leaveRoom(): void {
+        console.log('user disconnected:', this.socket.id)
+    }
+
 }
