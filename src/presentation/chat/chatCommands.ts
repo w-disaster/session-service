@@ -41,33 +41,29 @@ export function registerChatCommands(chatNamespace: Namespace) {
       chatCommandListener(socket, 'userToken', (message: any) => {
         const { token } = message
         /*
-                            Create the Client and add it to the user repository of the chat namespace.
-                            If it already joined a room chat, don't connect it to new ones.
-                        */
+                                    Create the Client and add it to the user repository of the chat namespace.
+                                    If it already joined a room chat, don't connect it to new ones.
+                                */
         const chatClient = new WsClient(new WsClientId(socket, token))
         if (chatClientRepository.add(chatClient)) {
           // joinRoom listener
           chatCommandListener(socket, 'joinRoom', (message: any) => {
-            const { roomName } = message
-
+            const { room } = message
+            console.log(room)
             // Join the Client to an existing or new Room
-            const roomId = new RoomId('chat', roomName)
-            const room: Room | undefined = roomRepository.contains(roomId)
+            const roomId = new RoomId('chat', room)
+            const r: Room | undefined = roomRepository.contains(roomId)
               ? roomRepository.find(roomId)
-              : new Room(roomId, roomName)
+              : new Room(roomId, new WsClientRepository([chatClient]))
+            console.log(r)
+            if (r) {
+              r.value.add(chatClient)
+              roomRepository.add(r)
 
-            if (room) {
-              room.value.add(chatClient)
-              roomRepository.add(room)
-
-              const roomReactions: RoomReactions = new RoomReactionsImpl(
-                chatNamespace,
-                socket,
-                room
-              )
+              const roomReactions: RoomReactions = new RoomReactionsImpl(chatNamespace, socket, r)
               const chatController: ChatController = new ChatControllerImpl(
                 roomReactions,
-                mapRoomToSession(room)
+                mapRoomToSession(r)
               )
 
               const user: User = mapWsClientToUser(chatClient)
