@@ -1,5 +1,6 @@
-import { ChatReactions, EmitMessage } from '../../../presentation/chat/chatReactions'
-import { Room, User } from '../userController'
+import { Session } from '../../../presentation/chat/model/dto/session'
+import { User } from '../../../presentation/chat/model/dto/user'
+import { RoomReactions, EmitMessage } from '../../../presentation/chat/roomReactions'
 
 export interface ChatController {
   /**
@@ -16,35 +17,37 @@ export interface ChatController {
 
   /**
    * Leave the room
-   * @param message
+   * @param chatUser
    */
-  leaveRoom(message: string): Promise<void>
+  leaveRoom(chatUser: User): Promise<void>
 }
 
 export class ChatControllerImpl implements ChatController {
   //clientList: Array<string>;
 
-  chatReactions: ChatReactions
-  room: Room
+  chatReactions: RoomReactions
+  session: Session
 
-  constructor(chatReactions: ChatReactions, room: Room) {
+  constructor(chatReactions: RoomReactions, session: Session) {
     this.chatReactions = chatReactions
-    this.room = room
+    this.session = session
   }
 
   async joinRoom(chatUser: User): Promise<void> {
     return new Promise<void>((resolve) => {
-      this.sendMessage(`user ${chatUser.email} joined session`).then(() => {
+      this.sendMessage(`user ${chatUser.name} joined session`).then(() => {
         this.chatReactions.joinRoom()
         resolve()
       })
     })
   }
 
-  async leaveRoom(): Promise<void> {
+  async leaveRoom(chatUser: User): Promise<void> {
     return new Promise<void>((resolve) => {
       this.chatReactions.leaveRoom()
-      resolve()
+      this.sendMessage(`user ${chatUser.name} left session`).then(() => {
+        resolve()
+      })
     })
   }
 
