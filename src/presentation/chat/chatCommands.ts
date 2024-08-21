@@ -44,7 +44,7 @@ export function registerChatCommands(chatNamespace: Namespace) {
             Create the Client and add it to the user repository of the chat namespace.
             If it already joined a room chat, don't connect it to new ones.
         */
-        const chatClient = new WsClient(new WsClientId(socket, token), "myemail@studio.unibo.it");
+        const chatClient = new WsClient(new WsClientId(socket, token), 'myemail@studio.unibo.it')
 
         if (chatClientRepository.add(chatClient)) {
           // joinRoom listener
@@ -61,7 +61,11 @@ export function registerChatCommands(chatNamespace: Namespace) {
               clientRoom.value.add(chatClient)
               roomRepository.add(clientRoom)
 
-              const clientReactions: ClientReactions = new ClientReactionsImpl(chatNamespace, chatClient, clientRoom);
+              const clientReactions: ClientReactions = new ClientReactionsImpl(
+                chatNamespace,
+                chatClient,
+                clientRoom
+              )
               const chatController: ChatController = new ChatControllerImpl(
                 clientReactions,
                 mapRoomToSession(clientRoom)

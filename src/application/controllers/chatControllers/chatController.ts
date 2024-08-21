@@ -53,7 +53,7 @@ export class ChatControllerImpl implements ChatController {
 
   async sendMessage(message: string): Promise<void> {
     return new Promise<void>((resolve) => {
-      this.clientReactions.sendRoomMessage({text: message});
+      this.clientReactions.sendRoomMessage({ text: message })
       resolve()
     })
   }

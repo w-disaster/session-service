@@ -7,7 +7,7 @@ export class WsClient implements Entry<WsClientId, string> {
 
   constructor(id: WsClientId, email: string) {
     this.id = id
-    this.email = email;
+    this.email = email
   }
 }
 
