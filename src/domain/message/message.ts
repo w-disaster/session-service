@@ -1,11 +1,16 @@
-type Message = {
+export type ClientServerMessage = {
   userToken: string
 }
 
-type JoinMsg = Message & {
+export type JoinMsg = ClientServerMessage & {
   sessionId: string
 }
 
-type ChatMessage = Message & {
+export type ChatMessage = ClientServerMessage & {
+  text: string
+}
+
+
+export type ServerClientMessage = {
   text: string
 }

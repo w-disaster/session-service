@@ -1,11 +1,13 @@
 import { Socket } from 'socket.io'
 import { Entry, Id, Repository } from './repository'
 
-export class WsClient implements Entry<WsClientId, undefined> {
+export class WsClient implements Entry<WsClientId, string> {
   id: WsClientId
+  email: string
 
-  constructor(id: WsClientId) {
+  constructor(id: WsClientId, email: string) {
     this.id = id
+    this.email = email;
   }
 }
 
@@ -19,4 +21,4 @@ export class WsClientId implements Id {
   }
 }
 
-export class WsClientRepository extends Repository<WsClient, WsClientId, undefined> {}
+export class WsClientRepository extends Repository<WsClient, WsClientId, string> {}
