@@ -1,101 +1,84 @@
 import { Namespace, Socket } from 'socket.io'
-import {
-  ChatController,
-  ChatControllerImpl
-} from '../../application/controllers/chatControllers/chatController'
-import { commandListener, mapRoomToSession, mapWsClientToUser } from '../utils'
-import { Room, RoomId, RoomRepository } from './model/room'
-import { WsClient, WsClientId, WsClientRepository } from './model/client'
-import { User } from './model/dto/user'
-import { ClientReactions, ClientReactionsImpl } from './clientReactions'
+import { ChatManager } from './chatManager'
+import { commandListener } from '../utils'
+import { NotificationMessage, TextMessage } from './model/message'
 
-/**
- * Register Chat Commands to the given Namespace
- * @param chatNamespace
- */
-export function registerChatCommands(chatNamespace: Namespace) {
+export interface SessionNamespace {
+  registerCommands(namespace: Namespace): void
+}
+
+export class ChatNamespace implements SessionNamespace {
+  chatManager: ChatManager
+
+  constructor() {
+    this.chatManager = new ChatManager()
+  }
+
   /**
    * Chat Command Listener with default message check.
    * @param socket
    * @param command
    * @param commandCallback
    */
-  function chatCommandListener(
-    socket: Socket,
-    command: string,
-    commandCallback: (argv: string) => void
-  ) {
+  chatCommandListener(socket: Socket, command: string, commandCallback: (argv: string) => void) {
     // TODO: implement check
     commandListener(socket, command, () => true, commandCallback)
   }
 
-  const chatClientRepository = new WsClientRepository([])
-  const roomRepository = new RoomRepository([])
+  /**
+   * Register Chat Commands to the given Namespace
+   * @param chatNamespace
+   */
+  registerCommands(chatNamespace: Namespace) {
+    commandListener(
+      chatNamespace,
+      'connection',
+      () => true,
+      (socket: Socket) => {
+        socket.on('userToken', (message, ack) => {
+          const { token } = message
 
-  commandListener(
-    chatNamespace,
-    'connection',
-    () => true,
-    (socket: Socket) => {
-      // userToken listener
-      chatCommandListener(socket, 'userToken', (message: any) => {
-        const { token } = message
-        /*
-            Create the Client and add it to the user repository of the chat namespace.
-            If it already joined a room chat, don't connect it to new ones.
-        */
-        const chatClient = new WsClient(new WsClientId(socket, token), 'myemail@studio.unibo.it')
+          this.chatManager
+            .isClientJoined(token)
+            .then(() => {
+              ack(true)
+              this.chatCommandListener(socket, 'joinRoom', (message: any) => {
+                const { room } = message
 
-        if (chatClientRepository.add(chatClient)) {
-          // joinRoom listener
-          chatCommandListener(socket, 'joinRoom', (message: any) => {
-            const { room } = message
+                this.chatManager
+                  .joinClientToRoom(token, room, socket)
+                  .then((notificationMessage: NotificationMessage) => {
+                    chatNamespace.to(room).emit('notificationMessage', notificationMessage)
+                    socket.join(room)
 
-            // Join the Client to an existing or new Room
-            const roomId = new RoomId('chat', room)
-            const clientRoom: Room | undefined = roomRepository.contains(roomId)
-              ? roomRepository.find(roomId)
-              : new Room(roomId, new WsClientRepository([chatClient]))
+                    this.chatCommandListener(socket, 'leaveRoom', (message: any) => {
+                      this.chatManager
+                        .leaveClientFromRoom(token, room, socket)
+                        .then((notificationMessage: NotificationMessage) => {
+                          socket.leave(room)
+                          chatNamespace.to(room).emit('notificationMessage', notificationMessage)
+                        })
+                    })
 
-            if (clientRoom) {
-              clientRoom.value.add(chatClient)
-              roomRepository.add(clientRoom)
-
-              const clientReactions: ClientReactions = new ClientReactionsImpl(
-                chatNamespace,
-                chatClient,
-                clientRoom
-              )
-              const chatController: ChatController = new ChatControllerImpl(
-                clientReactions,
-                mapRoomToSession(clientRoom)
-              )
-
-              const user: User = mapWsClientToUser(chatClient)
-              chatController.joinRoom(user).then(() => {
-                // Register Leave Room listener
-                chatCommandListener(socket, 'leaveRoom', (message: any) => {
-                  chatController.leaveRoom(user)
-                })
-
-                // Register Send Message listener
-                chatCommandListener(socket, 'sendMessage', (data: any) => {
-                  const { message } = data
-                  chatController.sendMessage(message)
-                })
+                    this.chatCommandListener(socket, 'sendMessage', (data: any) => {
+                      const { message } = data
+                      this.chatManager
+                        .sendMessage(token, message)
+                        .then((textMessage: TextMessage) => {
+                          chatNamespace.to(room).emit('textMessage', textMessage)
+                        })
+                    })
+                  })
               })
-            }
-          })
+            })
+            .catch(() => ack(false))
+        })
 
-          // Client disconnects
-          chatCommandListener(socket, 'disconnect', (message: any) => {
-            chatClientRepository.remove(chatClient.id)
-          })
-        } else {
-          // Disconnect the user from the server side
+        // Client disconnects
+        this.chatCommandListener(socket, 'disconnect', (message: any) => {
           socket.disconnect()
-        }
-      })
-    }
-  )
+        })
+      }
+    )
+  }
 }
