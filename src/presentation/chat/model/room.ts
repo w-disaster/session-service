@@ -1,24 +1,24 @@
-import { Entry, Id, Repository } from './repository'
-import { WsClientRepository } from './client'
+import { WsClientEntrySet } from './client'
+import { Entity, EntitySet, Id } from './entity'
 
 export class RoomId implements Id {
   roomName: string
-  namespaceName: string
 
-  constructor(roomName: string, namespaceName: string) {
+  constructor(roomName: string) {
     this.roomName = roomName
-    this.namespaceName = namespaceName
   }
+  
 }
 
-export class Room implements Entry<RoomId, WsClientRepository> {
-  id: RoomId
-  value: WsClientRepository
+export class Room implements Entity<RoomId, WsClientEntrySet> {
 
-  constructor(id: RoomId, value: WsClientRepository) {
+  id: RoomId
+  value: WsClientEntrySet
+
+  constructor(id: RoomId, value: WsClientEntrySet) {
     this.id = id
     this.value = value
   }
 }
 
-export class RoomRepository extends Repository<Room, RoomId, WsClientRepository> {}
+export class RoomEntitySet extends EntitySet<Room> {};

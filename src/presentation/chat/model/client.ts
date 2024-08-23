@@ -1,24 +1,27 @@
-import { Socket } from 'socket.io'
-import { Entry, Id, Repository } from './repository'
+import { Socket } from "socket.io"
+import { Entity, EntitySet, Id } from "./entity";
 
-export class WsClient implements Entry<WsClientId, string> {
+
+export class WsClient implements Entity<WsClientId, [Socket, string]> {
+
   id: WsClientId
-  email: string
+  value: [Socket, string] 
 
-  constructor(id: WsClientId, email: string) {
+  constructor(id: WsClientId, socket: Socket, token: string) {
     this.id = id
-    this.email = email
+    this.value = [socket, token];
   }
 }
 
 export class WsClientId implements Id {
-  socket: Socket // id
-  token: string // id
 
-  constructor(socket: Socket, token: string) {
-    this.socket = socket
-    this.token = token
+  email: string
+
+  constructor(email: string) {
+    this.email = email;
   }
 }
 
-export class WsClientRepository extends Repository<WsClient, WsClientId, string> {}
+export class WsClientEntrySet extends EntitySet<WsClient> {};
+
+
