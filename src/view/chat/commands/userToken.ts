@@ -4,6 +4,15 @@ import { joinCommand } from './join'
 import { ChatController } from '../../../controllers/chatController'
 import { Ack } from '../../../model/message'
 
+/**
+ * User token command.
+ * After the token is received and validated, it enables the client to send
+ * a joinRoom message.
+ * @param chatNamespace
+ * @param socket
+ * @param chatController
+ * @returns
+ */
 export function userTokenCommand(
   chatNamespace: Namespace,
   socket: Socket,
