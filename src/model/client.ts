@@ -19,4 +19,4 @@ export class WsClientId implements Id {
   }
 }
 
-export class WsClientEntrySet extends EntitySet<WsClient> {}
+export class WsClientEntrySet extends EntitySet<WsClient, WsClientId, [Socket, string]> {}

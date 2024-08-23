@@ -1,17 +1,16 @@
-export interface Id {}
-export interface Entity<X extends Id, Y> {
+export interface Entity<X, Y> {
   id: X
   value?: Y
 }
 
-export class EntitySet<X extends Entity<any, any>> {
-  private array: Array<X>
+export class EntitySet<X extends Entity<Y, Z>, Y, Z> {
+  private array: X[]
 
-  constructor(array: Array<X>) {
+  constructor(array: X[]) {
     this.array = array
   }
 
-  contains(id: Id): boolean {
+  contains(id: Y): boolean {
     return this.array.some((el) => el.id == id)
   }
 
@@ -23,7 +22,7 @@ export class EntitySet<X extends Entity<any, any>> {
     return false
   }
 
-  remove(id: Id): boolean {
+  remove(id: Y): boolean {
     if (this.contains(id)) {
       this.array = this.array.filter((el) => el.id == id)
       return true
@@ -31,11 +30,11 @@ export class EntitySet<X extends Entity<any, any>> {
     return false
   }
 
-  find(id: Id): X | undefined {
+  find(id: Y): X | undefined {
     return this.array.find((el) => el.id == id)
   }
 
-  get values(): Array<X> {
+  get values(): X[] {
     return this.array
   }
 }

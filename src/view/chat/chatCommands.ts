@@ -1,17 +1,17 @@
 import { Namespace, Socket } from 'socket.io'
-import { ChatManager } from './chatManager'
+import { ChatController } from '../../controllers/chatController'
 import { commandListener } from '../utils'
-import { NotificationMessage, TextMessage } from './model/message'
+import { NotificationMessage, TextMessage } from '../../model/message'
 
 export interface SessionNamespace {
   registerCommands(namespace: Namespace): void
 }
 
 export class ChatNamespace implements SessionNamespace {
-  chatManager: ChatManager
+  chatManager: ChatController
 
   constructor() {
-    this.chatManager = new ChatManager()
+    this.chatManager = new ChatController()
   }
 
   /**
@@ -39,7 +39,7 @@ export class ChatNamespace implements SessionNamespace {
           const { token } = message
 
           this.chatManager
-            .isClientJoined(token)
+            .isClientJoined(/*token*/)
             .then(() => {
               ack(true)
               this.chatCommandListener(socket, 'joinRoom', (message: any) => {
@@ -53,9 +53,9 @@ export class ChatNamespace implements SessionNamespace {
 
                     this.chatCommandListener(socket, 'leaveRoom', (message: any) => {
                       this.chatManager
-                        .leaveClientFromRoom(token, room, socket)
+                        .leaveClientFromRoom(room)
                         .then((notificationMessage: NotificationMessage) => {
-                          socket.leave(room)
+                          socket.leave(room /*, token*/)
                           chatNamespace.to(room).emit('notificationMessage', notificationMessage)
                         })
                     })
