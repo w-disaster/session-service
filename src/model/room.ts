@@ -1,7 +1,7 @@
 import { WsClientEntrySet } from './client'
-import { Entity, EntitySet, Id } from './entity'
+import { Entity, EntitySet } from './entity'
 
-export class RoomId implements Id {
+export class RoomId {
   roomName: string
 
   constructor(roomName: string) {
