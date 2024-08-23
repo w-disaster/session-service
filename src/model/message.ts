@@ -46,3 +46,8 @@ export class TextMessage extends Message {
     return this.text
   }
 }
+
+export enum Ack {
+  OK = 0,
+  FAILURE = 1
+}

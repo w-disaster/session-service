@@ -11,11 +11,11 @@ export function commandListener<X>(
   sn: Socket | Namespace,
   command: string,
   verifyCommand: (argv: X) => boolean,
-  commandCallback: (argv: X) => void
-) {
-  sn.on(command, (argv: X) => {
+  commandCallback: (argv: X, ack: any) => void
+): void {
+  sn.on(command, (argv: X, ack) => {
     if (verifyCommand(argv)) {
-      commandCallback(argv)
+      commandCallback(argv, ack)
     }
   })
 }
