@@ -1,10 +1,10 @@
 import { Server } from 'socket.io'
-import { registerChatCommands } from './chat/chatCommands'
-//import { registerVideoCommands } from "./videoCommands";
+import { ChatNamespace, SessionNamespace } from './chat/chatCommands'
 
 export async function registerCommands(io: Server) {
   // Register Chat Commands
-  registerChatCommands(io.of('/chat'))
+  const chatNamespace: SessionNamespace = new ChatNamespace()
+  chatNamespace.registerCommands(io.of('/chat'))
 
   //  Register Video Commands
   //registerVideoCommands(io.of("/video"));
