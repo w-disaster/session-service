@@ -1,4 +1,5 @@
 import { Namespace, Socket } from 'socket.io'
+import { Ack, Message } from '../../model/message'
 
 /**
  * Command listener util function
@@ -18,4 +19,32 @@ export function commandListener<X>(
       commandCallback(argv, ack)
     }
   })
+}
+
+/**
+ * Chat Command Listener with default message check.
+ * @param socket
+ * @param command
+ * @param commandCallback
+ */
+export function chatCommandListener(
+  socket: Socket,
+  command: string,
+  commandCallback: (argv: any, ack: any) => void
+) {
+  // TODO: implement check
+  commandListener(socket, command, () => true, commandCallback)
+}
+
+export function chatReaction<X extends void | Message>(
+  promise: Promise<X>,
+  successReaction: (x: X) => void,
+  ack: any
+) {
+  promise
+    .then((message: X) => {
+      successReaction(message)
+      ack(Ack.OK)
+    })
+    .catch(() => Ack.FAILURE)
 }
