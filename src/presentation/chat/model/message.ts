@@ -1,53 +1,48 @@
-
-enum Notification {
-    JOINROOM, LEAVEROOM
+export enum Notification {
+  JOINROOM,
+  LEAVEROOM
 }
 
-class Message {
+export class Message {
+  private readonly name: string
+  private readonly surname: string
 
-    readonly name: string;
-    readonly surname: string;
+  constructor(name: string, surname: string) {
+    this.name = name
+    this.surname = surname
+  }
 
-    constructor(name: string, surname: string) {
-        this.name = name;
-        this.surname = surname;
-    }
+  get senderName(): string {
+    return this.name
+  }
 
-    get senderName(): string {
-        return this.name;
-    }
-
-    get senderSurname(): string {
-        return this.surname;
-    }
+  get senderSurname(): string {
+    return this.surname
+  }
 }
 
-class NotificationMessage extends Message {
+export class NotificationMessage extends Message {
+  private readonly notification: Notification
 
-    readonly notification: Notification
+  constructor(name: string, surname: string, notification: Notification) {
+    super(name, surname)
+    this.notification = notification
+  }
 
-    constructor(name: string, surname: string, notification: Notification) {
-        super(name, surname);
-        this.notification = notification;
-    }
-
-    get notificationType(): Notification {
-        return this.notification;
-    }
-
+  get notificationType(): Notification {
+    return this.notification
+  }
 }
 
-class TextMessage extends Message {
+export class TextMessage extends Message {
+  private readonly text: string
 
-    text: string;
+  constructor(name: string, surname: string, text: string) {
+    super(name, surname)
+    this.text = text
+  }
 
-    constructor(name: string, surname: string, text: string) {
-        super(name, surname);
-        this.text = text
-    }
-
-    get getText(): string {
-        return this.text;
-    }
-
+  get getText(): string {
+    return this.text
+  }
 }

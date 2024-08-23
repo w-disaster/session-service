@@ -7,11 +7,9 @@ export class RoomId implements Id {
   constructor(roomName: string) {
     this.roomName = roomName
   }
-  
 }
 
 export class Room implements Entity<RoomId, WsClientEntrySet> {
-
   id: RoomId
   value: WsClientEntrySet
 
@@ -21,4 +19,4 @@ export class Room implements Entity<RoomId, WsClientEntrySet> {
   }
 }
 
-export class RoomEntitySet extends EntitySet<Room> {};
+export class RoomEntitySet extends EntitySet<Room> {}

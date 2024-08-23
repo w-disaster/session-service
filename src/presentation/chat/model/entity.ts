@@ -1,4 +1,3 @@
-
 export interface Id {}
 export interface Entity<X extends Id, Y> {
   id: X
@@ -6,11 +5,10 @@ export interface Entity<X extends Id, Y> {
 }
 
 export class EntitySet<X extends Entity<any, any>> {
-
-  private array: Array<X>;
+  private array: Array<X>
 
   constructor(array: Array<X>) {
-    this.array = array;
+    this.array = array
   }
 
   contains(id: Id): boolean {
@@ -38,8 +36,6 @@ export class EntitySet<X extends Entity<any, any>> {
   }
 
   get values(): Array<X> {
-    return this.array;
+    return this.array
   }
-
-
 }
