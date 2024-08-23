@@ -5,6 +5,18 @@ import { chatCommandListener, chatReaction } from '../utils'
 import { leaveRoomCommand } from './leaveRoom'
 import { sendMessageCommand } from './sendMessage'
 
+/**
+ * Join Command.
+ * Returns a function that joins a socketIO socket to the specified room.
+ * After the client successfully joins a room, it enables the client to further:
+ * (1) send a message to the room;
+ * (2) leave the room.
+ * @param chatNamespace
+ * @param socket
+ * @param token
+ * @param chatController
+ * @returns
+ */
 export function joinCommand(
   chatNamespace: Namespace,
   socket: Socket,
@@ -13,8 +25,6 @@ export function joinCommand(
 ): (message: any, ack: any) => void {
   return (message, ack) => {
     const { room } = message
-    console.log('joined')
-
     chatReaction(
       chatController.isClientJoined(/*token*/),
       () => {

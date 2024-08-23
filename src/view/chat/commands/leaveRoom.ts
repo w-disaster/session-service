@@ -3,6 +3,15 @@ import { Ack, NotificationMessage } from '../../../model/message'
 import { ChatController } from '../../../controllers/chatController'
 import { chatReaction } from '../utils'
 
+/**
+ * Leave command.
+ * Using the token and socket, leaves the user to the specified room.
+ * @param chatNamespace
+ * @param socket
+ * @param room
+ * @param chatController
+ * @returns
+ */
 export function leaveRoomCommand(
   chatNamespace: Namespace,
   socket: Socket,

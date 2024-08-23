@@ -3,6 +3,15 @@ import { Ack, TextMessage } from '../../../model/message'
 import { chatReaction } from '../utils'
 import { ChatController } from '../../../controllers/chatController'
 
+/**
+ * Send message command.
+ * Sends a message to the room specified as parameter.
+ * @param chatNamespace
+ * @param token
+ * @param room
+ * @param chatController
+ * @returns
+ */
 export function sendMessageCommand(
   chatNamespace: Namespace,
   token: string,
