@@ -19,4 +19,4 @@ export class Room implements Entity<RoomId, WsClientEntrySet> {
   }
 }
 
-export class RoomEntitySet extends EntitySet<Room, RoomId, WsClientEntrySet> {}
+export class RoomEntitySet extends EntitySet<Room> {}

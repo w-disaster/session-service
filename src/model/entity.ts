@@ -3,7 +3,7 @@ export interface Entity<X, Y> {
   value?: Y
 }
 
-export class EntitySet<X extends Entity<Y, Z>, Y, Z> {
+export class EntitySet<X extends Entity<Y, Z>, Y = X['id'], Z = X['value']> {
   private array: X[]
 
   constructor(array: X[]) {
