@@ -1,5 +1,5 @@
 import { Server } from 'socket.io'
-import { ChatNamespace, SessionNamespace } from './chat/chatCommands'
+import { ChatNamespace, SessionNamespace } from './chat/chatNamespace'
 
 export async function registerCommands(io: Server) {
   // Register Chat Commands
