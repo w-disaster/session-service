@@ -1,6 +1,6 @@
-import { Room, RoomEntitySet, RoomId } from '../model/room'
-import { User, UserEntitySet, UserId } from '../model/user'
+import { ChatImpl, RoomEntitySet, RoomId, RoomImpl } from '../model/room'
 import { Notification, NotificationMessage, TextMessage } from '../model/message'
+import { User, UserEntitySet, UserId } from '../model/user'
 
 export class ChatController {
   rooms: RoomEntitySet
@@ -21,9 +21,9 @@ export class ChatController {
     return new User(this.getUserEmailFromToken(), 'Name', 'Surname')
   }
 
-  async isClientJoined(/*token: string*/): Promise<void> {
+  async isUserJoined(/*token: string*/): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (this.rooms.values.some((room) => room.value.contains(this.getUserEmailFromToken()))) {
+      if (this.rooms.values.some((room) => room.isUserJoined(this.getUserFromToken()))) {
         reject()
       } else {
         resolve()
@@ -31,32 +31,35 @@ export class ChatController {
     })
   }
 
-  async joinClientToRoom(token: string, room: string): Promise<NotificationMessage> {
+  async joinUserToRoom(token: string, room: string): Promise<NotificationMessage> {
     return new Promise((resolve) => {
       const user: User = this.getUserFromToken(/*token*/)
       const roomId: RoomId = new RoomId(room)
-      if (!this.rooms.add(new Room(roomId, new UserEntitySet([user])))) {
-        this.rooms.find(roomId)?.value.add(user)
+
+      if (!this.rooms.add(new RoomImpl(roomId, new UserEntitySet([user]), new ChatImpl()))) {
+        this.rooms.find(roomId)?.joinUser(user)
       }
-      resolve(new NotificationMessage(user.value[0], user.value[1], Notification.JOINROOM))
+      resolve(new NotificationMessage(user, Notification.JOINROOM))
     })
   }
 
   async sendMessage(token: string, message: string): Promise<TextMessage> {
     return new Promise((resolve) => {
       // getUserInfoFromToken
-      resolve(new TextMessage('Name', 'Surname', message))
+      const user: User = this.getUserFromToken(/*token*/)
+      resolve(new TextMessage(user, message))
     })
   }
 
-  async leaveClientFromRoom(
+  async leaveUserFromRoom(
     /*token: string,*/
     room: string
   ): Promise<NotificationMessage> {
     return new Promise((resolve) => {
       const roomId: RoomId = new RoomId(room)
-      this.rooms.find(roomId)?.value.remove(this.getUserEmailFromToken())
-      resolve(new NotificationMessage('Name', 'Surname', Notification.LEAVEROOM))
+      const user: User = this.getUserFromToken(/*token*/)
+      this.rooms.find(roomId)?.value?.getX.remove(user.id)
+      resolve(new NotificationMessage(user, Notification.LEAVEROOM))
     })
   }
 }
