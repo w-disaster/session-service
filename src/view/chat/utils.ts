@@ -1,5 +1,5 @@
 import { Namespace, Socket } from 'socket.io'
-import { Ack, Message } from '../../model/message'
+import { Ack, Message, MessageContent } from '../../model/message'
 
 /**
  * Command listener util function
@@ -36,7 +36,7 @@ export function chatCommandListener(
   commandListener(socket, command, () => true, commandCallback)
 }
 
-export function chatReaction<X extends void | Message>(
+export function chatReaction<X extends void | Message<MessageContent>>(
   promise: Promise<X>,
   successReaction: (x: X) => void,
   ack: any

@@ -20,7 +20,7 @@ export function leaveRoomCommand(
 ): (message: any, ack: any) => void {
   return (message, ack) => {
     chatReaction(
-      chatController.leaveClientFromRoom(room),
+      chatController.leaveUserFromRoom(room),
       (notificationMessage: NotificationMessage) => {
         socket.leave(room /*, token*/)
         chatNamespace.to(room).emit('notificationMessage', notificationMessage)

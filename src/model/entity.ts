@@ -1,6 +1,11 @@
-export interface Entity<X, Y> {
+export class Entity<X, Y> {
   id: X
   value?: Y
+
+  constructor(id: X, value?: Y) {
+    this.id = id
+    this.value = value
+  }
 }
 
 export class EntitySet<X extends Entity<Y, Z>, Y = X['id'], Z = X['value']> {

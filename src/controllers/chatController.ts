@@ -1,7 +1,6 @@
-import { Socket } from 'socket.io'
-import { Room, RoomEntitySet, RoomId } from '../model/room'
-import { WsClient, WsClientEntrySet, WsClientId } from '../model/client'
+import { ChatImpl, RoomEntitySet, RoomId, RoomImpl } from '../model/room'
 import { Notification, NotificationMessage, TextMessage } from '../model/message'
+import { User, UserEntitySet, UserId } from '../model/user'
 
 export class ChatController {
   rooms: RoomEntitySet
@@ -14,13 +13,17 @@ export class ChatController {
 
   //private getUserInfoFromToken(token: string): [email, name, surname]
 
-  private getClientIdFromToken(/*token: string*/): WsClientId {
-    return new WsClientId('me@gmail.com')
+  private getUserEmailFromToken(/*token: string*/): UserId {
+    return new UserId('me@gmail.com')
   }
 
-  async isClientJoined(/*token: string*/): Promise<void> {
+  private getUserFromToken(/*token: string*/): User {
+    return new User(this.getUserEmailFromToken(), 'Name', 'Surname')
+  }
+
+  async isUserJoined(/*token: string*/): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (this.rooms.values.some((room) => room.value.contains(this.getClientIdFromToken()))) {
+      if (this.rooms.values.some((room) => room.isUserJoined(this.getUserFromToken()))) {
         reject()
       } else {
         resolve()
@@ -28,37 +31,35 @@ export class ChatController {
     })
   }
 
-  async joinClientToRoom(
-    token: string,
-    room: string,
-    socket: Socket
-  ): Promise<NotificationMessage> {
+  async joinUserToRoom(token: string, room: string): Promise<NotificationMessage> {
     return new Promise((resolve) => {
-      const client: WsClient = new WsClient(this.getClientIdFromToken(), socket, token)
+      const user: User = this.getUserFromToken(/*token*/)
       const roomId: RoomId = new RoomId(room)
-      if (!this.rooms.add(new Room(roomId, new WsClientEntrySet([client])))) {
-        this.rooms.find(roomId)?.value.add(client)
+
+      if (!this.rooms.add(new RoomImpl(roomId, new UserEntitySet([user]), new ChatImpl()))) {
+        this.rooms.find(roomId)?.joinUser(user)
       }
-      // getUserInfoFromToken
-      resolve(new NotificationMessage('Name', 'Surname', Notification.JOINROOM))
+      resolve(new NotificationMessage(user, Notification.JOINROOM))
     })
   }
 
   async sendMessage(token: string, message: string): Promise<TextMessage> {
     return new Promise((resolve) => {
       // getUserInfoFromToken
-      resolve(new TextMessage('Name', 'Surname', message))
+      const user: User = this.getUserFromToken(/*token*/)
+      resolve(new TextMessage(user, message))
     })
   }
 
-  async leaveClientFromRoom(
+  async leaveUserFromRoom(
     /*token: string,*/
     room: string
   ): Promise<NotificationMessage> {
     return new Promise((resolve) => {
       const roomId: RoomId = new RoomId(room)
-      this.rooms.find(roomId)?.value.remove(this.getClientIdFromToken())
-      resolve(new NotificationMessage('Name', 'Surname', Notification.LEAVEROOM))
+      const user: User = this.getUserFromToken(/*token*/)
+      this.rooms.find(roomId)?.value?.getX.remove(user.id)
+      resolve(new NotificationMessage(user, Notification.LEAVEROOM))
     })
   }
 }
