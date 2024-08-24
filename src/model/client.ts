@@ -1,13 +1,12 @@
-import { Socket } from 'socket.io'
 import { Entity, EntitySet } from './entity'
 
-export class WsClient implements Entity<WsClientId, [Socket, string]> {
+export class WsClient implements Entity<WsClientId, [string, string]> {
   id: WsClientId
-  value: [Socket, string]
+  value: [string, string]
 
-  constructor(id: WsClientId, socket: Socket, token: string) {
+  constructor(id: WsClientId, name: string, surname: string) {
     this.id = id
-    this.value = [socket, token]
+    this.value = [name, surname]
   }
 }
 
