@@ -1,5 +1,5 @@
 import { Room, RoomEntitySet, RoomId } from '../model/room'
-import { User, UserEntrySet, UserId } from '../model/user'
+import { User, UserEntitySet, UserId } from '../model/user'
 import { Notification, NotificationMessage, TextMessage } from '../model/message'
 
 export class ChatController {
@@ -35,7 +35,7 @@ export class ChatController {
     return new Promise((resolve) => {
       const user: User = this.getUserFromToken(/*token*/)
       const roomId: RoomId = new RoomId(room)
-      if (!this.rooms.add(new Room(roomId, new UserEntrySet([user])))) {
+      if (!this.rooms.add(new Room(roomId, new UserEntitySet([user])))) {
         this.rooms.find(roomId)?.value.add(user)
       }
       resolve(new NotificationMessage(user.value[0], user.value[1], Notification.JOINROOM))

@@ -1,4 +1,4 @@
-import { UserEntrySet } from './user'
+import { UserEntitySet } from './user'
 import { Entity, EntitySet } from './entity'
 
 export class RoomId {
@@ -9,11 +9,12 @@ export class RoomId {
   }
 }
 
-export class Room implements Entity<RoomId, UserEntrySet> {
+export class Room implements Entity<RoomId, UserEntitySet> {
+  
   id: RoomId
-  value: UserEntrySet
+  value: UserEntitySet
 
-  constructor(id: RoomId, value: UserEntrySet) {
+  constructor(id: RoomId, value: UserEntitySet) {
     this.id = id
     this.value = value
   }

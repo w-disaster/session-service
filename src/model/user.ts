@@ -18,4 +18,4 @@ export class UserId {
   }
 }
 
-export class UserEntrySet extends EntitySet<User> {}
+export class UserEntitySet extends EntitySet<User> {}
