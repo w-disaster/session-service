@@ -1,6 +1,6 @@
 import { Namespace, Socket } from 'socket.io'
 import { chatCommandListener } from '../utils'
-import { joinCommand } from './join'
+import { joinCommand } from './joinRoom'
 import { ChatController } from '../../../controllers/chatController'
 import { Ack } from '../../../model/message'
 
