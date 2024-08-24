@@ -4,6 +4,7 @@ import { ChatController } from '../../../controllers/chatController'
 import { chatCommandListener, chatReaction } from '../utils'
 import { leaveRoomCommand } from './leaveRoom'
 import { sendMessageCommand } from './sendMessage'
+import { SerializerImpl } from '../../../model/presentation/serialization/messageSerializer'
 
 /**
  * Join Command.
@@ -31,7 +32,9 @@ export function joinCommand(
         chatReaction(
           chatController.joinUserToRoom(token, room),
           (notificationMessage: NotificationMessage) => {
-            chatNamespace.to(room).emit('notificationMessage', notificationMessage)
+            chatNamespace
+              .to(room)
+              .emit('notificationMessage', new SerializerImpl().serialize(notificationMessage))
             socket.join(room)
             chatCommandListener(
               socket,

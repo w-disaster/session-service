@@ -8,7 +8,6 @@ export class TextMessageDeserializer extends AbstractDeserializer<TextMessage> {
   }
 
   deserializeJson(json: any): TextMessage {
-    console.log('D', json)
     return new TextMessage(new UserDeserializer().deserialize(json.sender), json.content)
   }
 }
