@@ -30,7 +30,7 @@ export class NotificationMessage implements Message<Notification> {
   }
 
   get getSender(): User {
-    throw this.sender
+    return this.sender
   }
 }
 
