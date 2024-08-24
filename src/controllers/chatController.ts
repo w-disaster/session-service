@@ -1,5 +1,5 @@
 import { Room, RoomEntitySet, RoomId } from '../model/room'
-import { WsClient, WsClientEntrySet, WsClientId } from '../model/client'
+import { User, UserEntrySet, UserId } from '../model/user'
 import { Notification, NotificationMessage, TextMessage } from '../model/message'
 
 export class ChatController {
@@ -13,12 +13,12 @@ export class ChatController {
 
   //private getUserInfoFromToken(token: string): [email, name, surname]
 
-  private getUserEmailFromToken(/*token: string*/): WsClientId {
-    return new WsClientId('me@gmail.com')
+  private getUserEmailFromToken(/*token: string*/): UserId {
+    return new UserId('me@gmail.com')
   }
 
-  private getUserFromToken(/*token: string*/): WsClient {
-    return new WsClient(this.getUserEmailFromToken(), 'Name', 'Surname')
+  private getUserFromToken(/*token: string*/): User {
+    return new User(this.getUserEmailFromToken(), 'Name', 'Surname')
   }
 
   async isClientJoined(/*token: string*/): Promise<void> {
@@ -33,12 +33,12 @@ export class ChatController {
 
   async joinClientToRoom(token: string, room: string): Promise<NotificationMessage> {
     return new Promise((resolve) => {
-      const client: WsClient = this.getUserFromToken(/*token*/)
+      const user: User = this.getUserFromToken(/*token*/)
       const roomId: RoomId = new RoomId(room)
-      if (!this.rooms.add(new Room(roomId, new WsClientEntrySet([client])))) {
-        this.rooms.find(roomId)?.value.add(client)
+      if (!this.rooms.add(new Room(roomId, new UserEntrySet([user])))) {
+        this.rooms.find(roomId)?.value.add(user)
       }
-      resolve(new NotificationMessage(client.value[0], client.value[1], Notification.JOINROOM))
+      resolve(new NotificationMessage(user.value[0], user.value[1], Notification.JOINROOM))
     })
   }
 

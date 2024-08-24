@@ -29,7 +29,7 @@ export function joinCommand(
       chatController.isClientJoined(/*token*/),
       () => {
         chatReaction(
-          chatController.joinClientToRoom(token, room, socket),
+          chatController.joinClientToRoom(token, room),
           (notificationMessage: NotificationMessage) => {
             chatNamespace.to(room).emit('notificationMessage', notificationMessage)
             socket.join(room)

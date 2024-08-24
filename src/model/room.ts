@@ -1,4 +1,4 @@
-import { WsClientEntrySet } from './client'
+import { UserEntrySet } from './user'
 import { Entity, EntitySet } from './entity'
 
 export class RoomId {
@@ -9,11 +9,11 @@ export class RoomId {
   }
 }
 
-export class Room implements Entity<RoomId, WsClientEntrySet> {
+export class Room implements Entity<RoomId, UserEntrySet> {
   id: RoomId
-  value: WsClientEntrySet
+  value: UserEntrySet
 
-  constructor(id: RoomId, value: WsClientEntrySet) {
+  constructor(id: RoomId, value: UserEntrySet) {
     this.id = id
     this.value = value
   }
