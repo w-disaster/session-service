@@ -1,3 +1,22 @@
+## [0.4.0](https://github.com/LetsStreamIt/session-service/compare/v0.3.0...v0.4.0) (2024-08-24)
+
+### Features
+
+* notification message deserialization ([0795fc8](https://github.com/LetsStreamIt/session-service/commit/0795fc85af3e62b57b7a1a018e4a1dc52f4e6361))
+
+### Bug Fixes
+
+* delete json parse because of nested serialization ([dce304b](https://github.com/LetsStreamIt/session-service/commit/dce304b0e64f2c35d4bc37f0a61bbc81f2d6e2c1))
+* throw in return ([888d61f](https://github.com/LetsStreamIt/session-service/commit/888d61fe87689c66f1b8d52c54ebee3517ed5d50))
+
+### General maintenance
+
+* remove ack and message in leave room command ([609c5c6](https://github.com/LetsStreamIt/session-service/commit/609c5c63be12839b836d858d08edcacdf089b786))
+
+### Refactoring
+
+* rename join command file ([acd040b](https://github.com/LetsStreamIt/session-service/commit/acd040b69072ee345926743a6cf17bc351174a21))
+
 ## [0.3.0](https://github.com/LetsStreamIt/session-service/compare/v0.2.0...v0.3.0) (2024-08-24)
 
 ### Features
