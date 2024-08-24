@@ -3,13 +3,16 @@ export enum Notification {
   LEAVEROOM
 }
 
-export class Message {
+
+export class Message<X> {
   private readonly name: string
   private readonly surname: string
+  private readonly content: X
 
-  constructor(name: string, surname: string) {
+  constructor(name: string, surname: string, content: X) {
     this.name = name
     this.surname = surname
+    this.content = content
   }
 
   get senderName(): string {
@@ -19,33 +22,16 @@ export class Message {
   get senderSurname(): string {
     return this.surname
   }
+
+  get messageContent(): X {
+    return this.content
+  }
+
 }
 
-export class NotificationMessage extends Message {
-  private readonly notification: Notification
+export class NotificationMessage extends Message<Notification> {}
 
-  constructor(name: string, surname: string, notification: Notification) {
-    super(name, surname)
-    this.notification = notification
-  }
-
-  get notificationType(): Notification {
-    return this.notification
-  }
-}
-
-export class TextMessage extends Message {
-  private readonly text: string
-
-  constructor(name: string, surname: string, text: string) {
-    super(name, surname)
-    this.text = text
-  }
-
-  get getText(): string {
-    return this.text
-  }
-}
+export class TextMessage extends Message<string> {}
 
 export enum Ack {
   OK = 0,
