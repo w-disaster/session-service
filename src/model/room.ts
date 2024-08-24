@@ -58,7 +58,7 @@ export interface Room extends Entity<RoomId, RoomEntry> {
 
   leaveUser(user: User): boolean
 
-  sendMessage(sender: User, message: Message<MessageContent>): void
+  sendMessage(message: Message<MessageContent>): void
 }
 
 export class RoomImpl implements Room {
@@ -95,7 +95,7 @@ export class RoomImpl implements Room {
     return false
   }
 
-  sendMessage(sender: User, message: Message<MessageContent>): void {
+  sendMessage(message: Message<MessageContent>): void {
     this.value?.getY.addMessage(message)
   }
 }

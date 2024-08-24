@@ -48,7 +48,7 @@ export class TextMessage implements Message<string> {
   }
 
   get getSender(): User {
-    throw this.sender
+    return this.sender
   }
 }
 
