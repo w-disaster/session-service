@@ -1,3 +1,28 @@
+## [0.3.0](https://github.com/LetsStreamIt/session-service/compare/v0.2.0...v0.3.0) (2024-08-24)
+
+### Features
+
+* textmessage serialization and deserialization ([55e8e5f](https://github.com/LetsStreamIt/session-service/commit/55e8e5f6efab71968cbe89736419cf95734ed27c))
+
+### Documentation
+
+* add class UML ([e57c3e5](https://github.com/LetsStreamIt/session-service/commit/e57c3e57fec39a9d470fe96241a507bc5e898f14))
+
+### General maintenance
+
+* add deserialization interface and abstract class ([6b2807e](https://github.com/LetsStreamIt/session-service/commit/6b2807eb3244c3695a300374115203494c031ac2))
+* add serialization interface and class ([0ff7391](https://github.com/LetsStreamIt/session-service/commit/0ff7391c6d2d294720224cd39f701fc7821facb5))
+* design chat and room as aggregate ([e8d86ec](https://github.com/LetsStreamIt/session-service/commit/e8d86ec78d6c58d036c85e73577fba158569b7b7))
+* fix typo ([3fae278](https://github.com/LetsStreamIt/session-service/commit/3fae27899dfe1133b84bcce91f0923e4c7fd2b42))
+* refine room class, add model getters ([2a53497](https://github.com/LetsStreamIt/session-service/commit/2a5349704363f32fb47118fc7ee7ade609627af8))
+* remove token and socket from client model ([50d2ac2](https://github.com/LetsStreamIt/session-service/commit/50d2ac2fa2f6cc23218fcf0f002e373a54d97ac1))
+* rename wsclient to user ([ed48de4](https://github.com/LetsStreamIt/session-service/commit/ed48de4131fb8cfd6d56f29ab5530586c221c315))
+* use room aggregate to manage chat ([6dead7f](https://github.com/LetsStreamIt/session-service/commit/6dead7fe33e93bcb1f29251cb2009a984d10f114))
+
+### Refactoring
+
+* rename client methods to user ([5b1898d](https://github.com/LetsStreamIt/session-service/commit/5b1898da7e6c8ee7d1426a492f394d422f145762))
+
 ## [0.2.0](https://github.com/LetsStreamIt/session-service/compare/v0.1.0...v0.2.0) (2024-08-23)
 
 ### Features
