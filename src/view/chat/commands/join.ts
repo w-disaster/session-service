@@ -26,10 +26,10 @@ export function joinCommand(
   return (message, ack) => {
     const { room } = message
     chatReaction(
-      chatController.isClientJoined(/*token*/),
+      chatController.isUserJoined(/*token*/),
       () => {
         chatReaction(
-          chatController.joinClientToRoom(token, room),
+          chatController.joinUserToRoom(token, room),
           (notificationMessage: NotificationMessage) => {
             chatNamespace.to(room).emit('notificationMessage', notificationMessage)
             socket.join(room)
