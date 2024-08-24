@@ -1,12 +1,13 @@
 import { Entity, EntitySet } from './entity'
+import { Pair } from './room'
 
-export class User implements Entity<UserId, [string, string]> {
+export class User implements Entity<UserId, Pair<string, string>> {
   id: UserId
-  value: [string, string]
+  value: Pair<string, string>
 
   constructor(id: UserId, name: string, surname: string) {
     this.id = id
-    this.value = [name, surname]
+    this.value = new Pair(name, surname)
   }
 }
 

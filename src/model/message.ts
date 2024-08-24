@@ -1,37 +1,56 @@
+import { User } from './user'
+
 export enum Notification {
   JOINROOM,
   LEAVEROOM
 }
 
+export type MessageContent = Notification | string
 
-export class Message<X> {
-  private readonly name: string
-  private readonly surname: string
-  private readonly content: X
+export interface Message<X extends MessageContent> {
+  readonly content: X
+  readonly sender: User
 
-  constructor(name: string, surname: string, content: X) {
-    this.name = name
-    this.surname = surname
-    this.content = content
+  get getContent(): X
+
+  get getSender(): User
+}
+
+export class NotificationMessage implements Message<Notification> {
+  content: Notification
+  sender: User
+
+  constructor(sender: User, notification: Notification) {
+    this.content = notification
+    this.sender = sender
   }
 
-  get senderName(): string {
-    return this.name
-  }
-
-  get senderSurname(): string {
-    return this.surname
-  }
-
-  get messageContent(): X {
+  get getContent(): Notification {
     return this.content
   }
 
+  get getSender(): User {
+    throw this.sender
+  }
 }
 
-export class NotificationMessage extends Message<Notification> {}
+export class TextMessage implements Message<string> {
+  content: string
+  sender: User
 
-export class TextMessage extends Message<string> {}
+  constructor(sender: User, text: string) {
+    this.content = text
+    this.sender = sender
+  }
+
+  get getContent(): string {
+    return this.content
+  }
+
+  get getSender(): User {
+    throw this.sender
+  }
+}
 
 export enum Ack {
   OK = 0,
