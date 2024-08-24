@@ -1,7 +1,8 @@
 import { Namespace, Socket } from 'socket.io'
-import { Ack, NotificationMessage } from '../../../model/message'
+import { NotificationMessage } from '../../../model/message'
 import { ChatController } from '../../../controllers/chatController'
 import { chatReaction } from '../utils'
+import { SerializerImpl } from '../../../model/presentation/serialization/messageSerializer'
 
 /**
  * Leave command.
@@ -17,16 +18,16 @@ export function leaveRoomCommand(
   socket: Socket,
   room: string,
   chatController: ChatController
-): (message: any, ack: any) => void {
-  return (message, ack) => {
+): () => void {
+  return () => {
     chatReaction(
       chatController.leaveUserFromRoom(room),
       (notificationMessage: NotificationMessage) => {
         socket.leave(room /*, token*/)
-        chatNamespace.to(room).emit('notificationMessage', notificationMessage)
-        ack(Ack.OK)
-      },
-      ack
+        chatNamespace
+          .to(room)
+          .emit('notificationMessage', new SerializerImpl().serialize(notificationMessage))
+      }
     )
   }
 }

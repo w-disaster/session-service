@@ -39,7 +39,7 @@ export function chatCommandListener(
 export function chatReaction<X extends void | Message<MessageContent>>(
   promise: Promise<X>,
   successReaction: (x: X) => void,
-  ack: any
+  ack?: any
 ) {
   promise
     .then((message: X) => {
