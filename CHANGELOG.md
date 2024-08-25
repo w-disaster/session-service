@@ -1,3 +1,20 @@
+## [0.5.0](https://github.com/LetsStreamIt/session-service/compare/v0.4.0...v0.5.0) (2024-08-25)
+
+### Features
+
+* model chat ([695a884](https://github.com/LetsStreamIt/session-service/commit/695a88473de6e6bbe737e7acc1532299c687d830))
+* send all chat messages at room join ([a3bae6c](https://github.com/LetsStreamIt/session-service/commit/a3bae6cc60224c361168dad9582e22e27edf42e9))
+
+### Bug Fixes
+
+* leave room ([6519b05](https://github.com/LetsStreamIt/session-service/commit/6519b05c3a95c7879da315ef33193135b745361d))
+* object equals ([5900e7c](https://github.com/LetsStreamIt/session-service/commit/5900e7c7067d89552d1ab5bf272381de6b679e87))
+
+### General maintenance
+
+* add any type usage linter skip ([313b6f0](https://github.com/LetsStreamIt/session-service/commit/313b6f0255319582cbfdf4126b50081c3940632f))
+* send chatUpdate message at client join, add room parameter ([2c36b18](https://github.com/LetsStreamIt/session-service/commit/2c36b183da671eeaa3cc47c11ef45f5cdcb3f9e0))
+
 ## [0.4.0](https://github.com/LetsStreamIt/session-service/compare/v0.3.0...v0.4.0) (2024-08-24)
 
 ### Features
