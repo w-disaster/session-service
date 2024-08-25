@@ -1,5 +1,5 @@
 import { Namespace, Socket } from 'socket.io'
-import { NotificationMessage } from '../../../model/message'
+import { ChatUpdate } from '../../../model/message'
 import { ChatController } from '../../../controllers/chatController'
 import { chatCommandListener, chatReaction } from '../utils'
 import { leaveRoomCommand } from './leaveRoom'
@@ -27,19 +27,23 @@ export function joinCommand(
   return (message, ack) => {
     const { room } = message
     chatReaction(
-      chatController.isUserJoined(/*token*/),
+      chatController.isUserJoined(token),
       () => {
         chatReaction(
           chatController.joinUserToRoom(token, room),
-          (notificationMessage: NotificationMessage) => {
+          (chatUpdate: ChatUpdate) => {
             chatNamespace
               .to(room)
-              .emit('notificationMessage', new SerializerImpl().serialize(notificationMessage))
+              .emit(
+                'notificationMessage',
+                new SerializerImpl().serialize(chatUpdate.notificationMessage)
+              )
             socket.join(room)
+            socket.emit('chatUpdate', new SerializerImpl().serialize(chatUpdate.messages))
             chatCommandListener(
               socket,
               'leaveRoom',
-              leaveRoomCommand(chatNamespace, socket, room, chatController)
+              leaveRoomCommand(chatNamespace, socket, room, token, chatController)
             )
             chatCommandListener(
               socket,

@@ -17,13 +17,15 @@ export function leaveRoomCommand(
   chatNamespace: Namespace,
   socket: Socket,
   room: string,
+  token: string,
   chatController: ChatController
 ): () => void {
   return () => {
     chatReaction(
-      chatController.leaveUserFromRoom(room),
+      chatController.leaveUserFromRoom(token, room),
       (notificationMessage: NotificationMessage) => {
         socket.leave(room /*, token*/)
+        socket.disconnect()
         chatNamespace
           .to(room)
           .emit('notificationMessage', new SerializerImpl().serialize(notificationMessage))

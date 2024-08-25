@@ -22,7 +22,7 @@ export function sendMessageCommand(
   return (data, ack) => {
     const { message } = data
     chatReaction(
-      chatController.sendMessage(token, message),
+      chatController.sendMessage(token, message, room),
       (textMessage: TextMessage) => {
         chatNamespace.to(room).emit('textMessage', new SerializerImpl().serialize(textMessage))
         ack(Ack.OK)

@@ -1,24 +1,24 @@
 import { Entity, EntitySet } from './entity'
-import { Message, MessageContent } from './message'
+import { Message, MessageContent, TextMessage } from './message'
 import { User, UserEntitySet } from './user'
 
 export interface Chat {
-  addMessage(message: Message<MessageContent>): void
+  addMessage(message: TextMessage): void
 
-  get getMessages(): Message<MessageContent>[]
+  get getMessages(): TextMessage[]
 }
 
 export class ChatImpl implements Chat {
-  private readonly messages: Message<MessageContent>[]
+  private readonly messages: TextMessage[]
 
   constructor() {
     this.messages = []
   }
 
-  addMessage(message: Message<MessageContent>): void {
+  addMessage(message: TextMessage): void {
     this.messages.push(message)
   }
-  get getMessages(): Message<MessageContent>[] {
+  get getMessages(): TextMessage[] {
     return this.messages
   }
 }
@@ -95,7 +95,7 @@ export class RoomImpl implements Room {
     return false
   }
 
-  sendMessage(message: Message<MessageContent>): void {
+  sendMessage(message: TextMessage): void {
     this.value?.getY.addMessage(message)
   }
 }

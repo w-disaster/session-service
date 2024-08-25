@@ -1,3 +1,5 @@
+import { isDeepEqual } from './utils'
+
 export class Entity<X, Y> {
   id: X
   value?: Y
@@ -16,7 +18,7 @@ export class EntitySet<X extends Entity<Y, Z>, Y = X['id'], Z = X['value']> {
   }
 
   contains(id: Y): boolean {
-    return this.array.some((el) => el.id == id)
+    return this.array.some((el) => isDeepEqual(el.id, id))
   }
 
   add(element: X): boolean {
@@ -29,14 +31,14 @@ export class EntitySet<X extends Entity<Y, Z>, Y = X['id'], Z = X['value']> {
 
   remove(id: Y): boolean {
     if (this.contains(id)) {
-      this.array = this.array.filter((el) => el.id == id)
+      this.array = this.array.filter((el) => !isDeepEqual(el.id, id))
       return true
     }
     return false
   }
 
   find(id: Y): X | undefined {
-    return this.array.find((el) => el.id == id)
+    return this.array.find((el) => isDeepEqual(el.id, id))
   }
 
   get values(): X[] {
