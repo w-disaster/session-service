@@ -1,4 +1,4 @@
-import { ChatImpl, Room, RoomEntitySet, RoomId, RoomImpl } from '../model/room'
+import { ChatImpl, RoomEntitySet, RoomId, RoomImpl } from '../model/room'
 import { ChatUpdate, Notification, NotificationMessage, TextMessage } from '../model/message'
 import { User, UserEntitySet, UserId } from '../model/user'
 
@@ -8,10 +8,6 @@ export class ChatController {
   constructor() {
     this.rooms = new RoomEntitySet([])
   }
-
-  //private validateToken(token: string): boolean
-
-  //private getUserInfoFromToken(token: string): [email, name, surname]
 
   private getUserEmailFromToken(token: string): UserId {
     return new UserId(token)
@@ -53,10 +49,7 @@ export class ChatController {
     return new Promise((resolve) => {
       const user: User = this.getUserFromToken(token)
       const textMessage: TextMessage = new TextMessage(user, message)
-      const r: Room | undefined = this.rooms.find(new RoomId(room))
-      if (r) {
-        r.sendMessage(textMessage)
-      }
+      this.rooms.find(new RoomId(room))?.sendMessage(textMessage)
       resolve(textMessage)
     })
   }
