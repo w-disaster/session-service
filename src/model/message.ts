@@ -52,6 +52,16 @@ export class TextMessage implements Message<string> {
   }
 }
 
+export class ChatUpdate {
+  readonly notificationMessage: NotificationMessage
+  readonly messages: TextMessage[]
+
+  constructor(notificationMessage: NotificationMessage, messages: TextMessage[]) {
+    this.notificationMessage = notificationMessage
+    this.messages = messages
+  }
+}
+
 export enum Ack {
   OK = 0,
   FAILURE = 1
