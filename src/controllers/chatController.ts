@@ -59,7 +59,17 @@ export class ChatController {
       const roomId: RoomId = new RoomId(room)
       const user: User = this.getUserFromToken(token)
       this.rooms.find(roomId)?.leaveUser(user)
+      this.removeRoomWhenAllUserLeft(roomId)
       resolve(new NotificationMessage(user, Notification.LEAVEROOM))
     })
+  }
+
+  private removeRoomWhenAllUserLeft(roomId: RoomId) {
+    const roomEntry = this.rooms.find(roomId)?.value
+    if (roomEntry) {
+      if (roomEntry.getX.values.length == 0) {
+        this.rooms.remove(roomId)
+      }
+    }
   }
 }
