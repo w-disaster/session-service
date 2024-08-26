@@ -1,3 +1,9 @@
+## [0.6.0](https://github.com/LetsStreamIt/session-service/compare/v0.5.0...v0.6.0) (2024-08-26)
+
+### Features
+
+* delete room when all users leave ([76a5dc9](https://github.com/LetsStreamIt/session-service/commit/76a5dc9e6e0a785094a1467b3b82b28d245617b1))
+
 ## [0.5.0](https://github.com/LetsStreamIt/session-service/compare/v0.4.0...v0.5.0) (2024-08-25)
 
 ### Features
