@@ -1,3 +1,24 @@
+## [0.7.0](https://github.com/LetsStreamIt/session-service/compare/v0.6.0...v0.7.0) (2024-08-28)
+
+### Features
+
+* deny empty messages from clients ([d00a920](https://github.com/LetsStreamIt/session-service/commit/d00a92081b063f9bd6f9a8180f3d7f0c38d9c167))
+
+### Dependency updates
+
+* **deps:** update dependency @types/node to v20.16.1 ([6bf38c6](https://github.com/LetsStreamIt/session-service/commit/6bf38c65aa1010b4b4950d077d25661efd8a3c63))
+* **deps:** update dependency chai to v5 ([c1654a7](https://github.com/LetsStreamIt/session-service/commit/c1654a77ce8e2b1c8e42f493ab83787361dcbd58))
+* **deps:** update dependency husky to v9.1.5 ([5d431cc](https://github.com/LetsStreamIt/session-service/commit/5d431ccbbeb94fec9634ec0595df0ce92660d56f))
+* **deps:** update dependency lint-staged to v15.2.9 ([031d5b9](https://github.com/LetsStreamIt/session-service/commit/031d5b931034f37419e8397285631bea8986c365))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.101 ([1ed9da6](https://github.com/LetsStreamIt/session-service/commit/1ed9da6f85d1ab92091b11a49956bb6feb4abfe2))
+* **deps:** update eslint monorepo to v9.9.1 ([3de9a72](https://github.com/LetsStreamIt/session-service/commit/3de9a72f6a25402a4a1e9e6e8d9430281740c347))
+* **deps:** update node.js ([a9a49e6](https://github.com/LetsStreamIt/session-service/commit/a9a49e6177ffc64444f130f068c729648b442c3c))
+* **deps:** update typescript-eslint monorepo to v8.2.0 ([6382e1d](https://github.com/LetsStreamIt/session-service/commit/6382e1d237450b3d519a43b73e28b2b6b80e5792))
+
+### General maintenance
+
+* chat message type for frontend usage ([a22d101](https://github.com/LetsStreamIt/session-service/commit/a22d1018e9d440489cfbc630d173e0beb87e89ba))
+
 ## [0.6.0](https://github.com/LetsStreamIt/session-service/compare/v0.5.0...v0.6.0) (2024-08-26)
 
 ### Features
