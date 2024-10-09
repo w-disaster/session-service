@@ -1,3 +1,85 @@
+## [0.8.0](https://github.com/LetsStreamIt/session-service/compare/v0.7.0...v0.8.0) (2024-10-09)
+
+### Features
+
+* single user synch at join, impl room play and stop ([9e808b1](https://github.com/LetsStreamIt/session-service/commit/9e808b17227a614a076fd9ecf679deac46397a3b))
+
+### Dependency updates
+
+* **deps:** update commitlint monorepo to v19.5.0 ([2237932](https://github.com/LetsStreamIt/session-service/commit/2237932c182c06ac6c9babbf031fd94ea83ba76f))
+* **deps:** update dependency @commitlint/cli to v19.4.1 ([ffb9fd2](https://github.com/LetsStreamIt/session-service/commit/ffb9fd28899ce6c828c873bb50733905ea2d6282))
+* **deps:** update dependency @commitlint/config-conventional to v19.4.1 ([de76707](https://github.com/LetsStreamIt/session-service/commit/de767070fe96993bf8c83e2d4b594c9300870226))
+* **deps:** update dependency @types/chai to v4.3.18 ([f0db142](https://github.com/LetsStreamIt/session-service/commit/f0db1426622fe6699eb52403704a2ebc9367a345))
+* **deps:** update dependency @types/chai to v4.3.19 ([13302bf](https://github.com/LetsStreamIt/session-service/commit/13302bfec5f824f1586d03d0927b22fc98bb8c93))
+* **deps:** update dependency @types/chai to v4.3.20 ([cf796e6](https://github.com/LetsStreamIt/session-service/commit/cf796e63376afaeddc3e2a22fab08f2c9fb922c3))
+* **deps:** update dependency @types/chai to v5 ([de36cc8](https://github.com/LetsStreamIt/session-service/commit/de36cc8bdc7eeac868b192c5c87d2fde822034b9))
+* **deps:** update dependency @types/express to v5 ([14f372c](https://github.com/LetsStreamIt/session-service/commit/14f372c20f5f9aedbd3b21f5ea22bbad5201f980))
+* **deps:** update dependency @types/mocha to v10.0.8 ([8f8daec](https://github.com/LetsStreamIt/session-service/commit/8f8daeca6594f3cfea642629dc25d5967c99f5ec))
+* **deps:** update dependency @types/node to v20.16.10 ([a502c8a](https://github.com/LetsStreamIt/session-service/commit/a502c8a8fcf1fef684d288b50d59f53f78dd6293))
+* **deps:** update dependency @types/node to v20.16.2 ([7f0c3bb](https://github.com/LetsStreamIt/session-service/commit/7f0c3bbacd439079b755af130bb4c9bd7a87cbb3))
+* **deps:** update dependency @types/node to v20.16.3 ([dcd5aa2](https://github.com/LetsStreamIt/session-service/commit/dcd5aa2e24431944d233be6b5d5363af123968f3))
+* **deps:** update dependency @types/node to v20.16.4 ([55c7128](https://github.com/LetsStreamIt/session-service/commit/55c7128a0839ee9f99be7013ef4ac42e51c0ba9b))
+* **deps:** update dependency @types/node to v20.16.5 ([b38c796](https://github.com/LetsStreamIt/session-service/commit/b38c796c33d13b6d24bc516ba3949a6ceae1129f))
+* **deps:** update dependency @types/node to v20.16.6 ([45f77a9](https://github.com/LetsStreamIt/session-service/commit/45f77a9da8b3d92588c85295000aeefb6f856b6a))
+* **deps:** update dependency @types/node to v20.16.7 ([765538f](https://github.com/LetsStreamIt/session-service/commit/765538fd91c73efad8a8c830004c1c25077672e3))
+* **deps:** update dependency @types/node to v20.16.9 ([2fa208f](https://github.com/LetsStreamIt/session-service/commit/2fa208f8a0b999a164caa460c74fabcc36b688bf))
+* **deps:** update dependency @vue/eslint-config-prettier to v10 ([9cd8c08](https://github.com/LetsStreamIt/session-service/commit/9cd8c08fa9cff543cebe5b75cc29368b4b67c11a))
+* **deps:** update dependency express to v4.20.0 [security] ([0ff98d6](https://github.com/LetsStreamIt/session-service/commit/0ff98d65e7915f2d7daee5cce25e374398938748))
+* **deps:** update dependency express to v4.21.0 ([a50d2f9](https://github.com/LetsStreamIt/session-service/commit/a50d2f9579b74938dfb2669bb5f348c04ba0ebc0))
+* **deps:** update dependency husky to v9.1.6 ([fef3fb0](https://github.com/LetsStreamIt/session-service/commit/fef3fb0c42af4607b511d04d9ac4592424a36e40))
+* **deps:** update dependency lint-staged to v15.2.10 ([b8f4898](https://github.com/LetsStreamIt/session-service/commit/b8f48986e6e77e686aba6db31960bb9d08946fb1))
+* **deps:** update dependency nodemon to v3.1.5 ([8a7360f](https://github.com/LetsStreamIt/session-service/commit/8a7360f5ea686b5e23b0b915e0e63a993794db2d))
+* **deps:** update dependency nodemon to v3.1.6 ([4ba0208](https://github.com/LetsStreamIt/session-service/commit/4ba0208af30ab8e261df85fb4b5ccf6915413f06))
+* **deps:** update dependency nodemon to v3.1.7 ([d9e421b](https://github.com/LetsStreamIt/session-service/commit/d9e421b56d022a4744a9c897db5711cf870640fd))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.102 ([63f4220](https://github.com/LetsStreamIt/session-service/commit/63f422073cb01ed775467899269ad3863db2dadf))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.103 ([cfe890a](https://github.com/LetsStreamIt/session-service/commit/cfe890a61aae5126aecb7c02677b926b8cd6926f))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.104 ([483ca0e](https://github.com/LetsStreamIt/session-service/commit/483ca0eb4ecbd40437235e6d5dd54c5b41c9f0eb))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.105 ([409a9d6](https://github.com/LetsStreamIt/session-service/commit/409a9d611e07020655ac11deee633742c6959898))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.106 ([64e1b00](https://github.com/LetsStreamIt/session-service/commit/64e1b008dafd137a41d1480713977ae747fcdde2))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.107 ([c55db17](https://github.com/LetsStreamIt/session-service/commit/c55db17a253a9c59649cb9b889091ab364b687de))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.108 ([6d8d0da](https://github.com/LetsStreamIt/session-service/commit/6d8d0dad7a241e2c281f3707389d588eaed4a170))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.109 ([d80d29c](https://github.com/LetsStreamIt/session-service/commit/d80d29c951ea8f15632555591facdfc0fd38e425))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.110 ([bdb04bc](https://github.com/LetsStreamIt/session-service/commit/bdb04bcd975c417c4d1ff6e8fbe15beccb7b762d))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.111 ([971c264](https://github.com/LetsStreamIt/session-service/commit/971c264e8e02fa99f2a0c125045693cf0f838abf))
+* **deps:** update dependency typedoc to v0.26.7 ([18e9038](https://github.com/LetsStreamIt/session-service/commit/18e90386ff39fef4b2af18afb5fc50785e81bdf0))
+* **deps:** update dependency typedoc to v0.26.8 ([8de13e0](https://github.com/LetsStreamIt/session-service/commit/8de13e01fb3c4211e102c45513631790d533971d))
+* **deps:** update dependency typescript to v5.6.2 ([4843922](https://github.com/LetsStreamIt/session-service/commit/4843922d82d6fa126cb299e11f28401bd70b93d1))
+* **deps:** update eslint monorepo to v9.10.0 ([1706f1b](https://github.com/LetsStreamIt/session-service/commit/1706f1b017bbff7c03dd9cef8cd261d8ee72a275))
+* **deps:** update eslint monorepo to v9.11.0 ([cfb83e2](https://github.com/LetsStreamIt/session-service/commit/cfb83e2589d37b2e344b4f8fa4e281a793656fb8))
+* **deps:** update eslint monorepo to v9.11.1 ([46bdaf1](https://github.com/LetsStreamIt/session-service/commit/46bdaf1de704387005d927580e66cdeb471c7056))
+* **deps:** update eslint monorepo to v9.12.0 ([2465d28](https://github.com/LetsStreamIt/session-service/commit/2465d2870803411a733f9588d288076ed4d7610d))
+* **deps:** update node.js to 20.18 ([b44fe35](https://github.com/LetsStreamIt/session-service/commit/b44fe3568ad049a473f880f351db3f29b8c3a946))
+* **deps:** update node.js to v20.18.0 ([a688e6e](https://github.com/LetsStreamIt/session-service/commit/a688e6e8eed38bf00b334f494575716108412977))
+* **deps:** update typescript-eslint monorepo to v8.3.0 ([9675fc8](https://github.com/LetsStreamIt/session-service/commit/9675fc8896ab621c01dff460a7abb637a1ffa7d3))
+* **deps:** update typescript-eslint monorepo to v8.4.0 ([7ba493a](https://github.com/LetsStreamIt/session-service/commit/7ba493a858f98d0a52e8f1a1facee846348fe578))
+* **deps:** update typescript-eslint monorepo to v8.5.0 ([bca7f92](https://github.com/LetsStreamIt/session-service/commit/bca7f92bd6da5c882a2a2bcd684c39506d621d08))
+* **deps:** update typescript-eslint monorepo to v8.6.0 ([ee423a2](https://github.com/LetsStreamIt/session-service/commit/ee423a2e4383652ec1622bd013bfc47898561395))
+* **deps:** update typescript-eslint monorepo to v8.7.0 ([b244ec0](https://github.com/LetsStreamIt/session-service/commit/b244ec05f734d32c25db397f08940195f6247f03))
+* **deps:** update typescript-eslint monorepo to v8.8.0 ([d62492b](https://github.com/LetsStreamIt/session-service/commit/d62492bb42e0a201451a94a9275f00209e483f6b))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v4.0.4 ([e6a3686](https://github.com/LetsStreamIt/session-service/commit/e6a368682a596fbb517e54b90a1854d46f96f49e))
+* **deps:** update danysk/action-checkout action to v0.2.20 ([c80d956](https://github.com/LetsStreamIt/session-service/commit/c80d9567e26705c3cc8e326f982542c790856aca))
+* **deps:** update danysk/action-checkout action to v0.2.21 ([e77a4ca](https://github.com/LetsStreamIt/session-service/commit/e77a4ca575ccd397c6822a34d32933341e163072))
+* **deps:** update docker/build-push-action digest to 4f58ea7 ([31eeb32](https://github.com/LetsStreamIt/session-service/commit/31eeb32eb9285b79013e8ae892cbe4c9fe4983a3))
+* **deps:** update docker/build-push-action digest to e44afff ([d308001](https://github.com/LetsStreamIt/session-service/commit/d3080017ca462dc644cdcd15edfbe066a970f732))
+* **deps:** update docker/login-action digest to 1f36f5b ([162f1db](https://github.com/LetsStreamIt/session-service/commit/162f1db67651a8c8864d69efe337bd374d5384d7))
+* **deps:** update docker/login-action digest to 29df2a9 ([ce29400](https://github.com/LetsStreamIt/session-service/commit/ce29400c415f52cf7c23b3eb5d79f578efd2ff67))
+* **deps:** update docker/login-action digest to 3b8fed7 ([182b66e](https://github.com/LetsStreamIt/session-service/commit/182b66eb7deed76c686bdcaaef887f9c9079b581))
+* **deps:** update docker/metadata-action digest to 70b2cdc ([d8d9263](https://github.com/LetsStreamIt/session-service/commit/d8d9263d8c76f63569021d8bc5cc6a88a1eac0a7))
+
+### General maintenance
+
+* add video commands in presentation ([a3f518a](https://github.com/LetsStreamIt/session-service/commit/a3f518a0caa1db595822e41824afe7e8a24ce90d))
+* add video state deserializer ([adb7332](https://github.com/LetsStreamIt/session-service/commit/adb733213e5858b2bf76c0fdfe0c7cc04d00e19e))
+
+### Refactoring
+
+* delete socket io namespaces ([3ca06b9](https://github.com/LetsStreamIt/session-service/commit/3ca06b919355a22b894c6161a54377a159b0b6f2))
+* rename and move listener functions ([c2f89ec](https://github.com/LetsStreamIt/session-service/commit/c2f89ec43c44d414472b0770d790d48cd69da502))
+* separate chat and video view and controllers ([967ab7a](https://github.com/LetsStreamIt/session-service/commit/967ab7a7028b1a42ef9f11883590552c5e8d504a))
+
 ## [0.7.0](https://github.com/LetsStreamIt/session-service/compare/v0.6.0...v0.7.0) (2024-08-28)
 
 ### Features
