@@ -1,3 +1,23 @@
+## [0.9.1](https://github.com/LetsStreamIt/session-service/compare/v0.9.0...v0.9.1) (2024-10-15)
+
+### Dependency updates
+
+* **deps:** update dependency typedoc to v0.26.9 ([e969918](https://github.com/LetsStreamIt/session-service/commit/e969918146a7f8cc57295ae66981bf14d6e3ea40))
+
+### Bug Fixes
+
+* import errors, refactor packages ([1cb3ad2](https://github.com/LetsStreamIt/session-service/commit/1cb3ad206555014ef5467dfd5e244c0e78d20ce0))
+
+### General maintenance
+
+* implement event bus, refactor commands ([d9982d0](https://github.com/LetsStreamIt/session-service/commit/d9982d05236f54b151aa4236cd396ed42f56dade))
+
+### Refactoring
+
+* move command logic to session handlers, move presentation package ([0532c97](https://github.com/LetsStreamIt/session-service/commit/0532c9746bbdda5bce88626b010aa7d774743f4c))
+* move model files inside aggregate package ([b3f3894](https://github.com/LetsStreamIt/session-service/commit/b3f389450bb810f57c3040b82bdacacabbd6b88e))
+* presentation packages ([f65ec10](https://github.com/LetsStreamIt/session-service/commit/f65ec10c4e0aab9450ff55cfac6ed8d9fc9eb94c))
+
 ## [0.9.0](https://github.com/LetsStreamIt/session-service/compare/v0.8.0...v0.9.0) (2024-10-12)
 
 ### Features
