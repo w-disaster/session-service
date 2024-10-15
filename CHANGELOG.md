@@ -1,3 +1,9 @@
+## [0.9.2](https://github.com/LetsStreamIt/session-service/compare/v0.9.1...v0.9.2) (2024-10-15)
+
+### Bug Fixes
+
+* imports in presentation ([1289f41](https://github.com/LetsStreamIt/session-service/commit/1289f411dc0e8dd6f7b13fa9f18d251b41a0410c))
+
 ## [0.9.1](https://github.com/LetsStreamIt/session-service/compare/v0.9.0...v0.9.1) (2024-10-15)
 
 ### Dependency updates
