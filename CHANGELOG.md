@@ -1,3 +1,21 @@
+## [0.9.3](https://github.com/LetsStreamIt/session-service/compare/v0.9.2...v0.9.3) (2024-10-17)
+
+### Bug Fixes
+
+* session deletion when all user leave ([a77dd90](https://github.com/LetsStreamIt/session-service/commit/a77dd90105197a416588c065a33dd3c95164792b))
+
+### General maintenance
+
+* event bus executes handlers in sequence ([b195c00](https://github.com/LetsStreamIt/session-service/commit/b195c00bd592f48fa080cff7a3fd601d1efd509a))
+
+### Refactoring
+
+* move commands and events inside respective aggregates ([72986c0](https://github.com/LetsStreamIt/session-service/commit/72986c031de559b866f00dc5ec9eb87fab7c969c))
+* remove useless functions in utils ([f7b744d](https://github.com/LetsStreamIt/session-service/commit/f7b744d9cdb01d4b2186422f10234eb47331c671))
+* rename ack to response ([8b7a663](https://github.com/LetsStreamIt/session-service/commit/8b7a663a512d1db0bd04ee14190eb20d5f2bc863))
+* rename room repository to session ([9084d79](https://github.com/LetsStreamIt/session-service/commit/9084d79637af165a11c7783a868560cc9c1d5cd4))
+* rename room variables to session, move util functions ([b8171b0](https://github.com/LetsStreamIt/session-service/commit/b8171b0b1e60bcc5d3b926ab410dc09af88c5b51))
+
 ## [0.9.2](https://github.com/LetsStreamIt/session-service/compare/v0.9.1...v0.9.2) (2024-10-15)
 
 ### Bug Fixes
