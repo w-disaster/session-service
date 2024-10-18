@@ -1,3 +1,18 @@
+## [0.10.0](https://github.com/LetsStreamIt/session-service/compare/v0.9.3...v0.10.0) (2024-10-18)
+
+### Features
+
+* accept youtube video url as create session command parameter ([68839e9](https://github.com/LetsStreamIt/session-service/commit/68839e99cb013f7ced9a0703f5832c4a24b3c6b1))
+* youtube video id verification ([bfc6fb8](https://github.com/LetsStreamIt/session-service/commit/bfc6fb87143378a79dd4268962db6c38bac6ab71))
+
+### Dependency updates
+
+* **deps:** update typescript-eslint monorepo to v8.9.0 ([dceb0f0](https://github.com/LetsStreamIt/session-service/commit/dceb0f0c5699188781070c6edc71039e2a7808b6))
+
+### General maintenance
+
+* add user token command handler ([26d9550](https://github.com/LetsStreamIt/session-service/commit/26d9550636caa5883e69f49ec6601bfcee6e62ec))
+
 ## [0.9.3](https://github.com/LetsStreamIt/session-service/compare/v0.9.2...v0.9.3) (2024-10-17)
 
 ### Bug Fixes
