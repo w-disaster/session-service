@@ -1,3 +1,18 @@
+## [0.10.1](https://github.com/LetsStreamIt/session-service/compare/v0.10.0...v0.10.1) (2024-10-18)
+
+### Bug Fixes
+
+* session video synchronization ([70ddc6e](https://github.com/LetsStreamIt/session-service/commit/70ddc6e1db74b84ce8933e7f78134acf000286a4))
+
+### General maintenance
+
+* use notification type as notification emit msg ([49afc5d](https://github.com/LetsStreamIt/session-service/commit/49afc5d3e3be1544da610a9ca24101d340532352))
+
+### Refactoring
+
+* rename ack to response ([686a2b8](https://github.com/LetsStreamIt/session-service/commit/686a2b8f6a200261c8e6763dce8b41224da8169b))
+* rename room to session ([10d1587](https://github.com/LetsStreamIt/session-service/commit/10d1587c54b0494f408a181da6b5c384e08b0199))
+
 ## [0.10.0](https://github.com/LetsStreamIt/session-service/compare/v0.9.3...v0.10.0) (2024-10-18)
 
 ### Features
