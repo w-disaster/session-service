@@ -1,3 +1,23 @@
+## [0.11.0](https://github.com/LetsStreamIt/session-service/compare/v0.10.1...v0.11.0) (2024-10-21)
+
+### Features
+
+* verify token using auth service ([88fa54e](https://github.com/LetsStreamIt/session-service/commit/88fa54ee38e328187694f9b665e4d2a1ca82cb78))
+
+### Dependency updates
+
+* **deps:** update dependency @types/node to v20.16.12 ([d313d56](https://github.com/LetsStreamIt/session-service/commit/d313d56e4d1e72729bf51f56e0a0cd2647133453))
+* **deps:** update dependency typedoc to v0.26.10 ([c5ab501](https://github.com/LetsStreamIt/session-service/commit/c5ab501d2dbc08948b73d28c7e3b7bdffd25486e))
+* **deps:** update typescript-eslint monorepo to v8.10.0 ([5cf0151](https://github.com/LetsStreamIt/session-service/commit/5cf0151197e1a026d9860e638d3d81225858b057))
+
+### General maintenance
+
+* refactor packages in interface/presentation/application/domain ([2321826](https://github.com/LetsStreamIt/session-service/commit/232182623f90e4a8c0c1a16afb38d768effe030e))
+
+### Refactoring
+
+* rename notifications to reactions ([6d03bbe](https://github.com/LetsStreamIt/session-service/commit/6d03bbef12d8d69612e7c7a7c4a67644a91d7b30))
+
 ## [0.10.1](https://github.com/LetsStreamIt/session-service/compare/v0.10.0...v0.10.1) (2024-10-18)
 
 ### Bug Fixes
