@@ -1,3 +1,26 @@
+## [0.11.1](https://github.com/LetsStreamIt/session-service/compare/v0.11.0...v0.11.1) (2024-10-21)
+
+### Documentation
+
+* add application doc ([264f402](https://github.com/LetsStreamIt/session-service/commit/264f402b26d9b1d0bafc1289f9c8c5802892a116))
+* add domain code doc ([3e823c7](https://github.com/LetsStreamIt/session-service/commit/3e823c7d9e8e43d63a232cb97235853a405a2880))
+* add interface layer documentation ([aac06ee](https://github.com/LetsStreamIt/session-service/commit/aac06ee1ec3831d2bc1baebe53df3c00a9fc9709))
+* add presentation documentation ([c8cf2c4](https://github.com/LetsStreamIt/session-service/commit/c8cf2c4fecc96a14cfecb149acc7cbfa871bcfca))
+* refine function signature doc ([d2bbc15](https://github.com/LetsStreamIt/session-service/commit/d2bbc159c3ead5edef9ce539ec0a4ad200fbbe43))
+
+### Build and continuous integration
+
+* update build typedoc site command ([e8f56c5](https://github.com/LetsStreamIt/session-service/commit/e8f56c58a05d0e51111fe7f704ab5e87b756a0e7))
+
+### General maintenance
+
+* del version in package.json, update deps ([b799d42](https://github.com/LetsStreamIt/session-service/commit/b799d4296d6a94120f6cf36d3ed3017e4b2e12f9))
+
+### Refactoring
+
+* put session service command handlers in separate directories ([e14f995](https://github.com/LetsStreamIt/session-service/commit/e14f99583cd8725d8663ecc36697514988d93162))
+* rename interfaces ([0c47570](https://github.com/LetsStreamIt/session-service/commit/0c475707128567e5ddc89680ea48eace3d2404e9))
+
 ## [0.11.0](https://github.com/LetsStreamIt/session-service/compare/v0.10.1...v0.11.0) (2024-10-21)
 
 ### Features
