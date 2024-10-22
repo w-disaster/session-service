@@ -1,3 +1,23 @@
+## [0.12.0](https://github.com/LetsStreamIt/session-service/compare/v0.11.2...v0.12.0) (2024-10-22)
+
+### Features
+
+* validate token through auth-service and retreive user info from profile-service ([57ab4b7](https://github.com/LetsStreamIt/session-service/commit/57ab4b7e45fa1d68a28123e822589cc083446572))
+
+### Dependency updates
+
+* **deps:** update dependency @types/node to v20.16.13 ([e3dd8e5](https://github.com/LetsStreamIt/session-service/commit/e3dd8e5cac13a1ae799de7b6a41d6c1283b7dcc7))
+
+### Bug Fixes
+
+* put user inside user token response ([9f70e74](https://github.com/LetsStreamIt/session-service/commit/9f70e74d7850227ebeec12aabe9c90e131c47f50))
+
+### General maintenance
+
+* edit domain commands by replacing token with User ([e38177a](https://github.com/LetsStreamIt/session-service/commit/e38177a4e5b3e57eaac10a6b5c2f3fd6b8b9a35e))
+* modify interface socket message handlers to use new version of commands ([512784b](https://github.com/LetsStreamIt/session-service/commit/512784ba8680c233d48ab6dfda1bc0b54a8d6cb8))
+* remove presentation layer, leveraging to socket io default parser only ([c067ac6](https://github.com/LetsStreamIt/session-service/commit/c067ac6506c06f70dc34ea91702f68e3b6f5d282))
+
 ## [0.11.2](https://github.com/LetsStreamIt/session-service/compare/v0.11.1...v0.11.2) (2024-10-22)
 
 ### Dependency updates
