@@ -1,3 +1,22 @@
+## [0.11.2](https://github.com/LetsStreamIt/session-service/compare/v0.11.1...v0.11.2) (2024-10-22)
+
+### Dependency updates
+
+* **deps:** update eslint monorepo to v9.13.0 ([5cdefc3](https://github.com/LetsStreamIt/session-service/commit/5cdefc389bdfe7153f0176540a543c87bfd2ccf0))
+
+### Documentation
+
+* remove typedoc file ([bced6d8](https://github.com/LetsStreamIt/session-service/commit/bced6d80cac83b55209a51f1edd4c4eda4aab9de))
+
+### Build and continuous integration
+
+* edit gen doc command, using entry point strategy ([626ef82](https://github.com/LetsStreamIt/session-service/commit/626ef82beaeccb213ea123f16998545449719ed9))
+
+### General maintenance
+
+* add typedoc.json ([4ad4875](https://github.com/LetsStreamIt/session-service/commit/4ad4875aa1ba761df4dfe4728491140ea32b9aa3))
+* fix exports ([1ff102a](https://github.com/LetsStreamIt/session-service/commit/1ff102a75d469eb99df49b6cffc0666258899d02))
+
 ## [0.11.1](https://github.com/LetsStreamIt/session-service/compare/v0.11.0...v0.11.1) (2024-10-21)
 
 ### Documentation
