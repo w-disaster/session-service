@@ -1,3 +1,24 @@
+## [0.12.1](https://github.com/LetsStreamIt/session-service/compare/v0.12.0...v0.12.1) (2024-10-23)
+
+### Dependency updates
+
+* **deps:** downgrade chai ([06ac816](https://github.com/LetsStreamIt/session-service/commit/06ac816bfec62fea20f2cba483ed7181061a02f9))
+
+### Bug Fixes
+
+* method exception ([d6ef3db](https://github.com/LetsStreamIt/session-service/commit/d6ef3dbb3f19219d5d9e12f7f9b83ba530bf267a))
+
+### Tests
+
+* add repository test ([829c959](https://github.com/LetsStreamIt/session-service/commit/829c959a678b7053193ec60329e267bd03561440))
+
+### General maintenance
+
+* private readonly field ([39ff9e8](https://github.com/LetsStreamIt/session-service/commit/39ff9e8a9cd2ee55492d6466fbf922185f4e9db8))
+* refine domain entities and repository ([d77d6e4](https://github.com/LetsStreamIt/session-service/commit/d77d6e43e5cb8845d37487d47dfab12df51f5d7c))
+* regen package.json, add event bus test ([68723c3](https://github.com/LetsStreamIt/session-service/commit/68723c3122807f20cb08251554f21a196c520ea3))
+* rename email ([8abf3bd](https://github.com/LetsStreamIt/session-service/commit/8abf3bdc7c8f596e577d899bda1392ee6caa13c0))
+
 ## [0.12.0](https://github.com/LetsStreamIt/session-service/compare/v0.11.2...v0.12.0) (2024-10-22)
 
 ### Features
