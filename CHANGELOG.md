@@ -1,3 +1,27 @@
+## [0.12.2](https://github.com/LetsStreamIt/session-service/compare/v0.12.1...v0.12.2) (2024-10-24)
+
+### Bug Fixes
+
+* enable leave session command after join ([b62a7fe](https://github.com/LetsStreamIt/session-service/commit/b62a7fea02a55559e2bdb7a9ad111d4866c5ff67))
+
+### Tests
+
+* add chat aggregate tests ([e9f3b26](https://github.com/LetsStreamIt/session-service/commit/e9f3b260eb0c1fb7703c698811b0978e594c28dc))
+* add create session tests ([3d00610](https://github.com/LetsStreamIt/session-service/commit/3d006100d1f0a7bb9d5805226e02838671ae1561))
+* add join session tests ([020c878](https://github.com/LetsStreamIt/session-service/commit/020c8782c6719f44634c4ef85ffe36a3838e1f6d))
+* add video tests ([6c3ef4b](https://github.com/LetsStreamIt/session-service/commit/6c3ef4b5b0c249cfa7a2e69165554a626b503e87))
+* align video reactions to domain, add play video reaction ([fb1c8ec](https://github.com/LetsStreamIt/session-service/commit/fb1c8ec430df548304dc84315e650403adc8c774))
+
+### General maintenance
+
+* include test directory in formatter checks ([c423f3f](https://github.com/LetsStreamIt/session-service/commit/c423f3fa0d36154bccd2107b765c00792bd6527e))
+* minimize repetitions in create session test ([ef9434b](https://github.com/LetsStreamIt/session-service/commit/ef9434bca1ba5361a39e58a99c2db75b7f7bbd36))
+* remove promise in some video reactions interface methods ([7e28497](https://github.com/LetsStreamIt/session-service/commit/7e2849758c95e0f15127a284fbda537de7c94007))
+
+### Refactoring
+
+* remove util function, put string of socket message inside relative command function ([a0d43ad](https://github.com/LetsStreamIt/session-service/commit/a0d43ad46ba1cca4f26107224e8189abcf7788f6))
+
 ## [0.12.1](https://github.com/LetsStreamIt/session-service/compare/v0.12.0...v0.12.1) (2024-10-23)
 
 ### Dependency updates
