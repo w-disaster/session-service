@@ -1,3 +1,42 @@
+## [0.12.3](https://github.com/LetsStreamIt/session-service/compare/v0.12.2...v0.12.3) (2024-10-29)
+
+### Dependency updates
+
+* **deps:** add dotenv ([4e26f24](https://github.com/LetsStreamIt/session-service/commit/4e26f24f1f65cae015183b7308c16d809cc6bd89))
+* **deps:** remove dotenv ([e479e32](https://github.com/LetsStreamIt/session-service/commit/e479e3251efe2b84b9813e80844fee43c9120c3d))
+* **deps:** update dependency @types/dotenv to v8.2.3 ([aecebc9](https://github.com/LetsStreamIt/session-service/commit/aecebc93711a6cc6c35622e69df21eebb1a97eab))
+* **deps:** update dependency @types/node to v20.16.14 ([89379fb](https://github.com/LetsStreamIt/session-service/commit/89379fb0c954a2d98c1113070380d6907b2444f3))
+* **deps:** update dependency @types/node to v20.16.15 ([14b59d8](https://github.com/LetsStreamIt/session-service/commit/14b59d8830848216696483b4952813fe4c4649bf))
+* **deps:** update dependency @types/node to v20.17.0 ([fea0cd3](https://github.com/LetsStreamIt/session-service/commit/fea0cd3ca0f6873fef87c154528e09749fd30e27))
+* **deps:** update dependency @types/node to v20.17.1 ([45b9d06](https://github.com/LetsStreamIt/session-service/commit/45b9d06383cfd03d57725fc1349030a802519b1e))
+* **deps:** update dependency @vue/eslint-config-prettier to v10.1.0 ([3656668](https://github.com/LetsStreamIt/session-service/commit/3656668c44c6b7e7668dd00d6382eb285a8cfc49))
+* **deps:** update dependency semantic-release-preconfigured-conventional-commits to v1.1.112 ([9f29c3e](https://github.com/LetsStreamIt/session-service/commit/9f29c3e0ce381ef3479de963f32936d86eb16de6))
+* **deps:** update node.js to v22 ([b0dc0ac](https://github.com/LetsStreamIt/session-service/commit/b0dc0ac8d3315a7f00e4413c758dd45b25773572))
+* **deps:** update socket.io packages to v4.8.1 ([7f84ccc](https://github.com/LetsStreamIt/session-service/commit/7f84ccc8471f0b31f8c7226c82345c7fc0a3142e))
+* **deps:** update typescript-eslint monorepo to v8.11.0 ([4475218](https://github.com/LetsStreamIt/session-service/commit/4475218444237a58b2a67a366ea6516719303417))
+
+### Documentation
+
+* update readme ([b77c027](https://github.com/LetsStreamIt/session-service/commit/b77c0278d759e8aee6bb574a0b850e87ed3ec4b5))
+
+### Build and continuous integration
+
+* **deps:** update actions/setup-node action to v4.1.0 ([324e49e](https://github.com/LetsStreamIt/session-service/commit/324e49e664c3c0fc9334c57268ad41ec8cd8848a))
+* **deps:** update danysk/action-checkout action to v0.2.22 ([5859890](https://github.com/LetsStreamIt/session-service/commit/5859890b5713f6e0f536a5c14435ce75a083ffd4))
+* **deps:** update docker/build-push-action digest to 5e99dac ([fe34bfd](https://github.com/LetsStreamIt/session-service/commit/fe34bfda6f40035b48bf6d1bc7a134a6d4fc0bb9))
+* **deps:** update docker/login-action digest to 0689575 ([8be852c](https://github.com/LetsStreamIt/session-service/commit/8be852c31250a1c6b863a5d223b2a77539623417))
+* **deps:** update docker/login-action digest to 5d8785b ([1d79805](https://github.com/LetsStreamIt/session-service/commit/1d79805747841429cf127ecae28917eff87aef62))
+* **deps:** update docker/metadata-action digest to d31acd5 ([1c7d706](https://github.com/LetsStreamIt/session-service/commit/1c7d7062b1c9340e520dbb1fc4cbef746cc966a5))
+* refine docs gen ([471d13d](https://github.com/LetsStreamIt/session-service/commit/471d13d1a8e03500dba4a7b5f7ca4431f9907c2c))
+
+### General maintenance
+
+* add config file ([533e401](https://github.com/LetsStreamIt/session-service/commit/533e4019d56057d2411595f5844039872695ff36))
+* add mocha in types ([e2991fa](https://github.com/LetsStreamIt/session-service/commit/e2991fa7c4fb78a4109151b1063660b9f2b5e7d8))
+* add types in tsconfig ([8d59f60](https://github.com/LetsStreamIt/session-service/commit/8d59f60a9e354b312bde22dc91956df3cdab021d))
+* edit dockerfile, minor refactor ([6aca00c](https://github.com/LetsStreamIt/session-service/commit/6aca00c6a87fcb92196f1bf6c08b37c07460d242))
+* typo ([eaf8ca4](https://github.com/LetsStreamIt/session-service/commit/eaf8ca4f315fd57298051fcd1d0a9b29290266ec))
+
 ## [0.12.2](https://github.com/LetsStreamIt/session-service/compare/v0.12.1...v0.12.2) (2024-10-24)
 
 ### Bug Fixes
