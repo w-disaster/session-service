@@ -1,3 +1,17 @@
+## [0.12.5](https://github.com/LetsStreamIt/session-service/compare/v0.12.4...v0.12.5) (2024-10-30)
+
+### ⚠ BREAKING CHANGES
+
+* refine readme
+
+### Documentation
+
+* refine readme ([054f9e3](https://github.com/LetsStreamIt/session-service/commit/054f9e336c688e46da16a5d7b4ef6cc5853a48ab))
+
+### General maintenance
+
+* undo file rename ([5617598](https://github.com/LetsStreamIt/session-service/commit/5617598b43e5d1c6b419a327f30831b2ca55dbd7))
+
 ## [0.12.4](https://github.com/LetsStreamIt/session-service/compare/v0.12.3...v0.12.4) (2024-10-30)
 
 ### Documentation
