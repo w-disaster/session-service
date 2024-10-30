@@ -1,3 +1,25 @@
+## [0.12.4](https://github.com/LetsStreamIt/session-service/compare/v0.12.3...v0.12.4) (2024-10-30)
+
+### Documentation
+
+* update readme ([730f473](https://github.com/LetsStreamIt/session-service/commit/730f473d5151c3ad89d80106e6c561f915d7f78b))
+
+### Tests
+
+* add layer architecture test ([60be867](https://github.com/LetsStreamIt/session-service/commit/60be867278930a2e368bb54bcf15e299932fa521))
+
+### Build and continuous integration
+
+* rename workflow file dependency ([959decc](https://github.com/LetsStreamIt/session-service/commit/959deccee29387dda817376c31dc7c97e62e3b02))
+
+### General maintenance
+
+* modify dep criuse deleting utils ([9621fef](https://github.com/LetsStreamIt/session-service/commit/9621fefd609bb7ce1ea11341c3968027769e6ee2))
+
+### Refactoring
+
+* rename ci file ([6112158](https://github.com/LetsStreamIt/session-service/commit/61121586c85f0cab01e8381ebcd5199344041cef))
+
 ## [0.12.3](https://github.com/LetsStreamIt/session-service/compare/v0.12.2...v0.12.3) (2024-10-29)
 
 ### Dependency updates
